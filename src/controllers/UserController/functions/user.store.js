@@ -1,8 +1,29 @@
+const userValidate = require("../../../services/yupValidate/user.validate");
 const User = require("../../../database/models/user.model");
 
 module.exports.createNewUser = async (req, res) => {
   try {
-    checkEmptyField(req.body);
+    // checkEmptyField(req.body);
+    // userValidate
+    //   .validate(req.body)
+    //   .then()
+    //   .catch((e) => {
+    //     const err = new Error(e.errors[0]);
+    //     err.code = 400;
+    //     throw err;
+    //   });
+    const yup = require("yup");
+
+    const schema = yup.object().shape({
+      fullName: yup
+        .string("O nome deve ser uma string")
+        .min(8, "Numero minimo de caracteres é 8")
+        .max(64, "Numero minimo de caracteres é 64")
+        .required("nome é obrigatório"),
+    });
+
+    schema.validate(req.body);
+
     const {
       body: {
         fullName,
@@ -28,7 +49,9 @@ module.exports.createNewUser = async (req, res) => {
     });
     return res.status(201).send({});
   } catch (error) {
-    return res.status(error.code || 500).send({ message: error.message });
+    return res
+      .status(error.code || error.status || 500)
+      .send({ message: error.message });
   }
 
   function checkEmptyField(body) {
