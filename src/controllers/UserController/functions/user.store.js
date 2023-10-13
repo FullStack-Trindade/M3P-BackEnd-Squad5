@@ -1,7 +1,6 @@
 const User = require("../../../database/models/user.model");
-// const bcrypt = require("bcrypt");
-const Password = require("../../../services/passwordEncryption");
-const { formatPhoneNumber } = require("../../../services");
+
+const { formatPhoneNumber, Password } = require("../../../services");
 
 module.exports.createNewUser = async (req, res) => {
   try {
@@ -18,9 +17,6 @@ module.exports.createNewUser = async (req, res) => {
       },
     } = req;
 
-    // const data = Password.encrypt("ola mundo");
-    // console.log("data", data);
-
     await User.create({
       fullName,
       gender,
@@ -29,7 +25,7 @@ module.exports.createNewUser = async (req, res) => {
       phoneNumber: formatPhoneNumber(phoneNumber),
       type,
       systemStatus,
-      password,
+      password: await Password.encrypt(password),
     });
 
     return res.status(201).send({});
