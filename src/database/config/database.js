@@ -8,7 +8,7 @@ module.exports = {
   database: process.env.DATABASE,
   port: process.env.DB_PORT,
   define: {
-    underscored: true,
-    underscoredAll: true,
+    // underscored: true,
+    // underscoredAll: true,
   },
 };
