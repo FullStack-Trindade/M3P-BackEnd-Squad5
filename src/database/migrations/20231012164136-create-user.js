@@ -26,6 +26,7 @@ module.exports = {
         validate: {
           is: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
         },
+        unique: true,
       },
       cpf: {
         allowNull: false,
@@ -34,6 +35,7 @@ module.exports = {
           len: 11,
           is: /^[0-9]*$/,
         },
+        unique: true,
       },
       phoneNumber: {
         allowNull: false,
