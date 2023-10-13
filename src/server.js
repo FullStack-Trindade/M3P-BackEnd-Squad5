@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const router = require("./routes");
 const server = express();
 
 server.use(
@@ -9,12 +10,7 @@ server.use(
   })
 );
 server.use(express.json());
-
-server.get("/", (request, response) => {
-  response.status(200).json({
-    message: `Hello World, ${process.env.APP_NAME}`,
-  });
-});
+server.use(router);
 
 module.exports = {
   server,
