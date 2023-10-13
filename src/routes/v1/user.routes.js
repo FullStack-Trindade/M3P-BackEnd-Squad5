@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const {
-  validate,
-} = require("../../middlewares/yupValidate/createUser.middleware");
+  validateData,
+} = require("../../middlewares/yupValidate/User/createUser.middleware");
 const UserController = require("../../controllers/UserController");
 
 router.get("/usuarios", UserController.index);
-router.post("/usuarios", UserController.store);
+router.post("/usuarios", validateData, UserController.store);
 
 module.exports = router;
