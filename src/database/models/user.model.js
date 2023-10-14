@@ -6,8 +6,22 @@ class User extends Model {
       {
         fullName: DataTypes.STRING,
         gender: DataTypes.STRING,
-        email: DataTypes.STRING,
-        cpf: DataTypes.STRING,
+        email: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          unique: {
+            args: true,
+            msg: "E-mail already exists",
+          },
+        },
+        cpf: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          unique: {
+            args: true,
+            msg: "CPF already exists",
+          },
+        },
         phoneNumber: DataTypes.STRING,
         type: DataTypes.STRING,
         systemStatus: DataTypes.BOOLEAN,
