@@ -3,6 +3,42 @@ const { findAllUsers } = require("./functions/user.index");
 
 class UsersController {
   async store(req, res) {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Cadastra um novo usuário'
+    // #swagger.description = 'Endpoint para cadastrar um novo usuário no banco de dados'
+    /* #swagger.parameters["body"] = { 
+        in: "body",
+        description:"
+        <u>
+          <li><b>fullName</b>: Nome do usuário com máximo e mínimo de 64 e 8 caracteres, respectivamente.<mark>Campo obrigatório</mark></li>
+          <li><b>gender</b>: Genero do usuário, com opções pré-definidas: male, female, other. <mark>Campo obrigatório</mark></li>
+          <li><b>email</b>: E-mail do usuário. <mark>Campo obrigatório</mark></span></li>
+          <li><b>cpf</b>: CPF do usuário no formato 000.000.000-00 <mark>Campo obrigatório</mark></li>
+          <li><b>phoneNumber</b>: Telefone do usuário, deve ser informado apenas os números e deve possui o DDD: 21988887777. <mark>Campo obrigatório</mark></li>
+          <li><b>type</b>: Role do usuário, podendo ser: medic, admin, nurse. <mark>Campo obrigatório</mark></li>
+          <li><b>password</b>: A senha deve conter no mínimo 6 caracteres. <mark>Campo obrigatório</mark></li>
+          <li><b>systemStatus</b>: Status no sistema, sendo sendo um boolean com valor TRUE. OBS: caso não informado, será cadastrado como Ativo</li>
+        </u>",
+        type: "object",
+        schema: { $ref: "#/definitions/userStoreBody" },
+        required: true} */
+    /* #swagger.responses[201] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/userStore201" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Valida os campos e trás o motivo da falha.\n Exemplo: Cpf informado fora do padrão (123.456.789.10)',
+          schema: { $ref: "#/definitions/userStore400" }
+        } */
+    /* #swagger.responses[409] = { 
+          description: 'Erro de CPF e/ou E-mail já cadastrado\nExemplo: Tentativa de cadastrar um usuário com um e-mail existente no banco.',
+          schema: { $ref: "#/definitions/userStore409" }
+        } */
+    /* #swagger.responses[500] = { 
+          description: 'Caso de erro ao gerar a resposta.\nExemplo: Tentando atribuir um novo valor a uma constante.',
+          schema: { $ref: "#/definitions/userStore500" }
+        } */
+
     await createNewUser(req, res);
   }
   async index(req, res) {
