@@ -12,7 +12,7 @@ module.exports.createNewUser = async (req, res) => {
         cpf,
         phoneNumber,
         type,
-        systemStatus,
+        systemStatus = true,
         password,
       },
     } = req;
@@ -28,7 +28,7 @@ module.exports.createNewUser = async (req, res) => {
       password: await Password.encrypt(password),
     });
 
-    return res.status(201).send({});
+    return res.status(201).send({ message: "Usuário criado com sucesso" });
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
       return res.status(409).send({ message: error.message });

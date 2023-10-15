@@ -1,5 +1,8 @@
+# FOLDERS
 /node_modules
-/.env
 /.vscode
 
+# FILES
+.env
+swagger.json
 postgres.session.sql
