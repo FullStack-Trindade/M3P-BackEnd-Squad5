@@ -43,6 +43,36 @@ const doc = {
     userStore400: { message: "Campo cpf deve estar no formato 000.000.000-00" },
     userStore409: { message: "E-mail already exists" },
     userStore500: { message: "Assignment to constant variable." },
+    userIndex200: {
+      data: [
+        {
+          id: 1,
+          fullName: "John Doe",
+          gender: "male",
+          email: "john_doe@gmail.com",
+          cpf: "123.456.789-10",
+          phoneNumber: "(21) 9 8888 7777",
+          type: "medic",
+          systemStatus: true,
+          createdAt: "2023-10-15T00:14:49.882Z",
+          updatedAt: "2023-10-15T00:14:49.882Z",
+        },
+        {
+          id: 7,
+          fullName: "Jane Doe",
+          gender: "female",
+          email: "jane_doe@gmail.com",
+          cpf: "987.654.321-00",
+          phoneNumber: "(21) 6 5555 4444",
+          type: "medic",
+          systemStatus: true,
+          createdAt: "2023-10-16T23:57:25.431Z",
+          updatedAt: "2023-10-16T23:57:25.431Z",
+        },
+      ],
+    },
+    userDestroy200: { message: "Usuário foi deletado com sucesso." },
+    userDestroy400: { message: "Usuário foi deletado com sucesso." },
   },
 };
 
