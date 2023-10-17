@@ -1,5 +1,6 @@
 const { createNewUser } = require("./functions/user.store");
 const { findAllUsers } = require("./functions/user.index");
+const { deleteUser } = require("./functions/user.destroy");
 
 class UsersController {
   async store(req, res) {
@@ -42,7 +43,29 @@ class UsersController {
     await createNewUser(req, res);
   }
   async index(req, res) {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Retorna todos os usuários cadastrados'
+    // #swagger.description = 'Endpoint retornar todos os usuários cadastrados no banco de dados.'
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/userIndex200" }
+        } */
     await findAllUsers(req, res);
+  }
+  async destroy(req, res) {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Deleta um usuário'
+    // #swagger.description = 'Endpoint para deletar um usuário por meio de seu Id.'
+    // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'User ID.'}
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/userDestroy200" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Exemplo de resposta de quando não for localizado um usuário com o Id fornecido',
+          schema: { $ref: "#/definitions/userDestroy200" }
+        } */
+    await deleteUser(req, res);
   }
 }
 
