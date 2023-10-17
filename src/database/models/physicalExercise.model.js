@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       date: DataTypes.DATE,
       time: DataTypes.TIME,
       exerciseType: DataTypes.ENUM,
-      quantityPerWeek: DataTypes.FLOAT,
+      quantityPerWeek: DataTypes.DECIMAL,
       description: DataTypes.STRING,
       systemStatus: DataTypes.BOOLEAN,
     },

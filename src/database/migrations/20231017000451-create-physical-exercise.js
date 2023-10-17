@@ -36,7 +36,7 @@ module.exports = {
         allowNull: false,
       },
       quantityPerWeek: {
-        type: Sequelize.FLOAT(2, 2),
+        type: Sequelize.DECIMAL(2, 2),
         allowNull: false,
       },
       description: {
