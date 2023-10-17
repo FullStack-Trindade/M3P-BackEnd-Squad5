@@ -73,6 +73,16 @@ const doc = {
     },
     userDestroy200: { message: "Usuário foi deletado com sucesso." },
     userDestroy400: { message: "Usuário foi deletado com sucesso." },
+    userUpdateBody: {
+      fullName: "John Doe",
+      gender: "male",
+      phoneNumber: "21982755867",
+      type: "medic",
+      password: "123456",
+    },
+    userUpdate200: { message: "Usuário atualizado com sucesso" },
+    userUpdate400: { message: "Usuário não encontrado" },
+    userUpdate500: { message: "Assignment to constant variable." },
   },
 };
 
