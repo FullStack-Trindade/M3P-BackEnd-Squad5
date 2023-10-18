@@ -36,6 +36,8 @@ module.exports.validateData = async (req, res, next) => {
 
     await schema.validate(req.body, { abortEarly: false }).then(() => next());
   } catch (err) {
-    res.status(400).send({ type: err.name, message: err.message });
+    res
+      .status(400)
+      .send({ type: err.name, message: err.message, errors: err.errors });
   }
 };
