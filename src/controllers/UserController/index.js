@@ -3,6 +3,7 @@ const { findAllUsers } = require("./functions/user.index");
 const { deleteUser } = require("./functions/user.destroy");
 const { updateUser } = require("./functions/user.update");
 const { userLogin } = require("./functions/user.login");
+const { resetUserPassword } = require("./functions/user.resetPassword");
 
 class UsersController {
   async index(req, res) {
@@ -105,6 +106,10 @@ class UsersController {
   }
   async login(req, res) {
     await userLogin(req, res);
+  }
+
+  async resetPassword(req, res) {
+    await resetUserPassword(req, res);
   }
 }
 
