@@ -9,7 +9,10 @@ class Password {
     return await bcrypt.hash(password, this.salt);
   }
   decrypt() {}
-  compare() {}
+
+  compare(formPass, userPass) {
+    return bcrypt.compareSync(formPass, userPass);
+  }
 }
 
 module.exports = new Password();

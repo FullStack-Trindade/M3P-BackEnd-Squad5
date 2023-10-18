@@ -2,8 +2,19 @@ const { createNewUser } = require("./functions/user.store");
 const { findAllUsers } = require("./functions/user.index");
 const { deleteUser } = require("./functions/user.destroy");
 const { updateUser } = require("./functions/user.update");
+const { userLogin } = require("./functions/user.login");
 
 class UsersController {
+  async index(req, res) {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Retorna todos os usuários cadastrados'
+    // #swagger.description = 'Endpoint retornar todos os usuários cadastrados no banco de dados.'
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/userIndex200" }
+        } */
+    await findAllUsers(req, res);
+  }
   async store(req, res) {
     // #swagger.tags = ['Users']
     // #swagger.summary = 'Cadastra um novo usuário'
@@ -43,16 +54,6 @@ class UsersController {
 
     await createNewUser(req, res);
   }
-  async index(req, res) {
-    // #swagger.tags = ['Users']
-    // #swagger.summary = 'Retorna todos os usuários cadastrados'
-    // #swagger.description = 'Endpoint retornar todos os usuários cadastrados no banco de dados.'
-    /* #swagger.responses[200] = { 
-          description: 'Exemplo de resposta de sucesso',
-          schema: { $ref: "#/definitions/userIndex200" }
-        } */
-    await findAllUsers(req, res);
-  }
   async destroy(req, res) {
     // #swagger.tags = ['Users']
     // #swagger.summary = 'Deleta um usuário'
@@ -68,7 +69,6 @@ class UsersController {
         } */
     await deleteUser(req, res);
   }
-
   async update(req, res) {
     // #swagger.tags = ['Users']
     // #swagger.summary = 'Atualiza um usuário'
@@ -102,6 +102,9 @@ class UsersController {
           schema: { $ref: "#/definitions/userStore500" }
         } */
     await updateUser(req, res);
+  }
+  async login(req, res) {
+    await userLogin(req, res);
   }
 }
 
