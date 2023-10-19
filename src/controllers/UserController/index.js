@@ -109,6 +109,30 @@ class UsersController {
   }
 
   async resetPassword(req, res) {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Altera a senha do usuário'
+    // #swagger.description = 'Endpoint para atualizar a senha do usuário'
+    /* #swagger.parameters["body"] = { 
+        in: "body",
+        description:"
+        <u>
+          <li><b>id</b>: Id do usuário.<mark>Campo obrigatório</mark></li>
+          <li><b>email</b>: E-mail do usuário. <mark>Campo obrigatório</mark></span></li>
+          <li><b>password</b>: A senha deve conter no mínimo 6 caracteres. <mark>Campo obrigatório</mark></li>
+        </u>",
+        type: "object",
+        schema: { $ref: "#/definitions/userResetBody" },
+        required: true} */
+
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/userReset200" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Exemplo de resposta de quando não for localizado um usuário com o Id / Email fornecido',
+          schema: { $ref: "#/definitions/userReset400" }
+        } */
+
     await resetUserPassword(req, res);
   }
 }

@@ -83,6 +83,13 @@ const doc = {
     userUpdate200: { message: "Usuário atualizado com sucesso" },
     userUpdate400: { message: "Usuário não encontrado" },
     userUpdate500: { message: "Assignment to constant variable." },
+    userResetBody: {
+      id: 1,
+      email: "i365c2a@gmail.com",
+      password: "12345627",
+    },
+    userReset200: { message: "Senha atualizada com sucesso" },
+    userReset400: { message: "Usuário não encontrado" },
   },
 };
 
