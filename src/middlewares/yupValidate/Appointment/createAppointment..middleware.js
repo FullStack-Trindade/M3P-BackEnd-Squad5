@@ -19,9 +19,9 @@ module.exports.validateData = async (req, res, next) => {
         .min(16, "Campo de descrição  deve conter no mínimo 16 caracteres")
         .max(1024, "Campo de descrição deve conter no máximo 1024 caracteres")
         .required("Campo de descrição é obrigatório"),
-      prescriptionMedication: yup
-        .string("Campo de medicação receitada precisa ser uma string")
-        .required("Campo de medicação receitada é obrigatório"),
+      prescriptionMedication: yup.string(
+        "Campo de medicação receitada precisa ser uma string"
+      ),
       dosagePrecautions: yup
         .string("Campo de dosagem e precauções precisa ser uma string")
         .min(
