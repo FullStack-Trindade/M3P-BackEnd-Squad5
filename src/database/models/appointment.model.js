@@ -5,7 +5,7 @@ class Appointment extends Model {
     super.init(
       {
         appointmentReason: DataTypes.STRING,
-        appointmentDate: DataTypes.DATE,
+        appointmentDate: DataTypes.DATEONLY,
         appointmentTime: DataTypes.TIME,
         description: DataTypes.STRING,
         prescriptionMedication: DataTypes.STRING,
