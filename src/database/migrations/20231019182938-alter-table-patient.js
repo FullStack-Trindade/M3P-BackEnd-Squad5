@@ -49,7 +49,7 @@ module.exports = {
       type: Sequelize.INTEGER,
       references: {
         model: "Addresses",
-        key: "patientId",
+        key: "id",
         as: "addressId",
       },
     });
@@ -59,6 +59,15 @@ module.exports = {
       defaultValue: true,
       allowNull: false,
     });
+
+    await queryInterface.addColumn("Addresses", "id", {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER,
+    });
+
+    await queryInterface.removeColumn("Addresses", "patientId");
 
     // await queryInterface.removeColumn("Patients", "userId");
   },
@@ -71,6 +80,8 @@ module.exports = {
     await queryInterface.removeColumn("Patients", "phoneNumber");
     await queryInterface.removeColumn("Patients", "addressId");
     await queryInterface.removeColumn("Patients", "systemStatus");
+    await queryInterface.removeColumn("Addresses", "id");
+    await queryInterface.addColumn("Addresses", "patientId");
     // await queryInterface.addColumn("Patients", "userId");
   },
 };
