@@ -70,6 +70,7 @@ module.exports = {
     await queryInterface.removeColumn("Patients", "cpf");
     await queryInterface.removeColumn("Patients", "phoneNumber");
     await queryInterface.removeColumn("Patients", "systemStatus");
+    await queryInterface.removeColumn("Patients", "addressId");
     // await queryInterface.addColumn("Patients", "userId");
   },
 };
