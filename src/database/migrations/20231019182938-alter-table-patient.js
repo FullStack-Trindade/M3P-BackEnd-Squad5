@@ -60,7 +60,7 @@ module.exports = {
       allowNull: false,
     });
 
-    await queryInterface.removeColumn("Patients", "userId");
+    // await queryInterface.removeColumn("Patients", "userId");
   },
 
   async down(queryInterface, Sequelize) {
@@ -71,6 +71,6 @@ module.exports = {
     await queryInterface.removeColumn("Patients", "phoneNumber");
     await queryInterface.removeColumn("Patients", "addressId");
     await queryInterface.removeColumn("Patients", "systemStatus");
-    await queryInterface.addColumn("Patients", "userId");
+    // await queryInterface.addColumn("Patients", "userId");
   },
 };
