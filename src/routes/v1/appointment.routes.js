@@ -13,6 +13,7 @@ router.post(
   AppointmentCreateValidator,
   AppointmentController.store
 );
+router.delete("/consulta/:id", AppointmentController.destroy);
 router.put(
   "/consulta/:id",
   AppointmentUpdateValidator,
