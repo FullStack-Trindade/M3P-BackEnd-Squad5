@@ -44,6 +44,12 @@ module.exports = {
       },
     });
 
+    await queryInterface.addColumn("Patients", "systemStatus", {
+      type: Sequelize.BOOLEAN,
+      defaultValue: true,
+      allowNull: false,
+    });
+
     await queryInterface.addColumn("Patients", "addressId", {
       allowNull: false,
       type: Sequelize.INTEGER,
@@ -54,21 +60,6 @@ module.exports = {
       },
     });
 
-    await queryInterface.addColumn("Patients", "systemStatus", {
-      type: Sequelize.BOOLEAN,
-      defaultValue: true,
-      allowNull: false,
-    });
-
-    await queryInterface.addColumn("Addresses", "id", {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: Sequelize.INTEGER,
-    });
-
-    await queryInterface.removeColumn("Addresses", "patientId");
-
     // await queryInterface.removeColumn("Patients", "userId");
   },
 
@@ -78,10 +69,7 @@ module.exports = {
     await queryInterface.removeColumn("Patients", "email");
     await queryInterface.removeColumn("Patients", "cpf");
     await queryInterface.removeColumn("Patients", "phoneNumber");
-    await queryInterface.removeColumn("Patients", "addressId");
     await queryInterface.removeColumn("Patients", "systemStatus");
-    await queryInterface.removeColumn("Addresses", "id");
-    await queryInterface.addColumn("Addresses", "patientId");
     // await queryInterface.addColumn("Patients", "userId");
   },
 };
