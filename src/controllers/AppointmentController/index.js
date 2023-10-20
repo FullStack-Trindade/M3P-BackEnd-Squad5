@@ -1,3 +1,4 @@
+const { deleteAppointment } = require("./functions/appointment.destroy");
 const { createNewAppointment } = require("./functions/appointment.store");
 const { updateAppointment } = require("./functions/appointment.update");
 
@@ -35,6 +36,22 @@ class AppointmentController {
         } */
 
     await createNewAppointment(req, res);
+  }
+
+  async destroy(req, res) {
+    // #swagger.tags = ['Appointment']
+    // #swagger.summary = 'Deleta uma consulta'
+    // #swagger.description = 'Endpoint para deletar uma consulta por meio de seu Id.'
+    // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'Appointment ID.'}
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/appointmentrDestroy200" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Exemplo de resposta de quando não for localizado uma consulta com o Id fornecido',
+          schema: { $ref: "#/definitions/appointmentDestroy200" }
+        } */
+    await deleteAppointment(req, res);
   }
   async update(req, res) {
     // #swagger.tags = ['Appointments']
