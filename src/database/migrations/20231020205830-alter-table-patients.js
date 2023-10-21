@@ -50,16 +50,6 @@ module.exports = {
       allowNull: false,
     });
 
-    await queryInterface.addColumn("Addresses", "id", {
-      primaryKey: true,
-      unique: true,
-      allowNull: false,
-      autoIncrement: true,
-      type: Sequelize.INTEGER,
-    });
-
-    await queryInterface.removeColumn("Addresses", "patientId");
-
     await queryInterface.addColumn("Patients", "addressId", {
       allowNull: false,
       type: Sequelize.INTEGER,
@@ -78,17 +68,6 @@ module.exports = {
     await queryInterface.removeColumn("Patients", "cpf");
     await queryInterface.removeColumn("Patients", "phoneNumber");
     await queryInterface.removeColumn("Patients", "systemStatus");
-    await queryInterface.removeColumn("Addresses", "id");
-    await queryInterface.addColumn("Patients", "patientId", {
-      allowNull: false,
-      primaryKey: true,
-      type: Sequelize.INTEGER,
-      references: {
-        model: "Patients",
-        key: "id",
-        as: "patientId",
-      },
-    });
     await queryInterface.removeColumn("Patients", "addressId");
   },
 };

@@ -3,15 +3,11 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("Addresses", {
-      patientId: {
+      id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-        references: {
-          model: "Patients",
-          key: "id",
-          as: "patientId",
-        },
       },
       zipCode: {
         type: Sequelize.STRING,
