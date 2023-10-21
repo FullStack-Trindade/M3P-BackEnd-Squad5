@@ -1,6 +1,12 @@
 const { Model, DataTypes } = require("sequelize");
+const patientModel = require("./patient.model");
 
 class User extends Model {
+  static associate(models) {
+    User.hasOne(patientModel, {
+      foreignKey: "userId",
+    });
+  }
   static init(sequelize) {
     super.init(
       {
