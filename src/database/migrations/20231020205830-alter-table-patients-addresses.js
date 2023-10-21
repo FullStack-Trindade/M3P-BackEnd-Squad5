@@ -69,8 +69,6 @@ module.exports = {
         as: "addressId",
       },
     });
-
-    // await queryInterface.removeColumn("Patients", "userId");
   },
 
   async down(queryInterface, Sequelize) {
@@ -92,7 +90,5 @@ module.exports = {
       },
     });
     await queryInterface.removeColumn("Patients", "addressId");
-
-    // await queryInterface.addColumn("Patients", "userId");
   },
 };

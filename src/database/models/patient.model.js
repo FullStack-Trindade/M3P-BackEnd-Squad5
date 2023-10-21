@@ -1,6 +1,8 @@
 "use strict";
 const { Model } = require("sequelize");
+
 const addressModel = require("./address.model");
+const userModel = require("./user.model");
 
 module.exports = (sequelize, DataTypes) => {
   class Patient extends Model {
@@ -11,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Patient.belongsTo(addressModel);
+
+      Patient.belongsTo(userModel);
     }
   }
   Patient.init(
@@ -40,8 +44,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // Patient.associate = (models) => {
-  //   Patient.hasOne(models.User);
-  // };
   return Patient;
 };
