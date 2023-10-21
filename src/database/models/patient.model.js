@@ -3,6 +3,11 @@ const { Model } = require("sequelize");
 
 const addressModel = require("./address.model");
 const userModel = require("./user.model");
+const appointmentsModel = require("./appointment.model");
+const dietsModel = require("./diet.model");
+const examsModel = require("./exam.model");
+const medicinesModel = require("./medicine.model");
+const physicalExerciseModel = require("./physicalExercise.model");
 
 module.exports = (sequelize, DataTypes) => {
   class Patient extends Model {
@@ -15,6 +20,22 @@ module.exports = (sequelize, DataTypes) => {
       Patient.belongsTo(addressModel);
 
       Patient.belongsTo(userModel);
+
+      Patient.hasMany(appointmentsModel, {
+        foreignKey: "patientId",
+      });
+      Patient.hasMany(dietsModel, {
+        foreignKey: "patientId",
+      });
+      Patient.hasMany(examsModel, {
+        foreignKey: "patientId",
+      });
+      Patient.hasMany(medicinesModel, {
+        foreignKey: "patientId",
+      });
+      Patient.hasMany(physicalExerciseModel, {
+        foreignKey: "patientId",
+      });
     }
   }
   Patient.init(

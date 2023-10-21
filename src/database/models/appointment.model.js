@@ -1,6 +1,11 @@
 const { Model, DataTypes } = require("sequelize");
 
+const patientModel = require("./patient.model");
+
 class Appointment extends Model {
+  static associate(models) {
+    Appointment.belongsTo(patientModel);
+  }
   static init(sequelize) {
     super.init(
       {
@@ -11,6 +16,7 @@ class Appointment extends Model {
         prescriptionMedication: DataTypes.STRING,
         dosagePrecautions: DataTypes.STRING,
         systemStatus: DataTypes.BOOLEAN,
+        patientId: DataTypes.INTEGER,
       },
       {
         sequelize,
