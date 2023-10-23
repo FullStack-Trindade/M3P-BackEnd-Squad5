@@ -10,9 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      PhysicalExercise.belongsTo(patientModel);
-    }
+    static associate(models) {}
   }
   PhysicalExercise.init(
     {
@@ -24,6 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.STRING,
       systemStatus: DataTypes.BOOLEAN,
       patientId: DataTypes.INTEGER,
+      userId: DataTypes.INTEGER,
     },
     {
       sequelize,

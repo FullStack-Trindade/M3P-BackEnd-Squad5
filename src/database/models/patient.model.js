@@ -3,11 +3,6 @@ const { Model } = require("sequelize");
 
 const addressModel = require("./address.model");
 const userModel = require("./user.model");
-const appointmentsModel = require("./appointment.model");
-const dietsModel = require("./diet.model");
-const examsModel = require("./exam.model");
-const medicinesModel = require("./medicine.model");
-const physicalExerciseModel = require("./physicalExercise.model");
 
 module.exports = (sequelize, DataTypes) => {
   class Patient extends Model {
@@ -18,23 +13,23 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Patient.belongsTo(addressModel);
-
       Patient.belongsTo(userModel);
 
-      Patient.hasMany(appointmentsModel, {
-        foreignKey: "patientId",
+      Patient.belongsToMany(userModel, {
+        through: "Appointment",
       });
-      Patient.hasMany(dietsModel, {
-        foreignKey: "patientId",
+
+      Patient.belongsToMany(userModel, {
+        through: "Diet",
       });
-      Patient.hasMany(examsModel, {
-        foreignKey: "patientId",
+      Patient.belongsToMany(userModel, {
+        through: "Exam",
       });
-      Patient.hasMany(medicinesModel, {
-        foreignKey: "patientId",
+      Patient.belongsToMany(userModel, {
+        through: "Medicine",
       });
-      Patient.hasMany(physicalExerciseModel, {
-        foreignKey: "patientId",
+      Patient.belongsToMany(userModel, {
+        through: "PhysicalExercise",
       });
     }
   }
