@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
   Diet.init(
     {
       name: DataTypes.STRING,
-      date: DataTypes.DATE,
+      date: DataTypes.DATEONLY,
+      time: DataTypes.TIME,
       dietType: DataTypes.ENUM,
       description: DataTypes.STRING,
       systemStatus: DataTypes.BOOLEAN,

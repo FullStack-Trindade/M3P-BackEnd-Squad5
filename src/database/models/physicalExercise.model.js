@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   PhysicalExercise.init(
     {
       exerciseName: DataTypes.STRING,
-      date: DataTypes.DATE,
+      date: DataTypes.DATEONLY,
       time: DataTypes.TIME,
       exerciseType: DataTypes.ENUM,
       quantityPerWeek: DataTypes.DECIMAL,
