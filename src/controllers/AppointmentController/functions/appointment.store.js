@@ -10,6 +10,7 @@ module.exports.createNewAppointment = async (req, res) => {
         description,
         prescriptionMedication,
         dosagePrecautions,
+        patientId,
         userId,
         systemStatus = true,
       },
@@ -21,6 +22,7 @@ module.exports.createNewAppointment = async (req, res) => {
       description,
       prescriptionMedication,
       dosagePrecautions,
+      patientId,
       userId,
       systemStatus,
     });

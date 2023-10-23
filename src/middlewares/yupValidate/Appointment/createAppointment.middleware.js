@@ -38,6 +38,11 @@ module.exports.validateData = async (req, res, next) => {
         .integer()
         .positive()
         .required("Id do Paciente e obrigatório"),
+      userId: yup
+        .number()
+        .integer()
+        .positive()
+        .required("Id do Usuario e obrigatório"),
       systemStatus: yup
         .mixed()
         .oneOf(

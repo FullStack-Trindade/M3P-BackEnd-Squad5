@@ -8,6 +8,7 @@ const {
   validateData: AppointmentUpdateValidator,
 } = require("../../middlewares/yupValidate/Appointment/updateAppointment.middleware");
 
+router.get("/consultas", AppointmentController.index);
 router.post(
   "/consulta",
   AppointmentCreateValidator,
