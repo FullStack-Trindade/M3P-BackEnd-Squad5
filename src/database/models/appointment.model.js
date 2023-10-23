@@ -1,7 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
 
-const patientModel = require("./patient.model");
-
 class Appointment extends Model {
   static associate(models) {}
   static init(sequelize) {

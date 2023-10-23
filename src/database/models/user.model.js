@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
+
 const patientModel = require("./patient.model");
 const addressModel = require("./address.model");
 
