@@ -1,8 +1,19 @@
 const { deleteAppointment } = require("./functions/appointment.destroy");
+const { findAllAppointment } = require("./functions/appointment.index");
 const { createNewAppointment } = require("./functions/appointment.store");
 const { updateAppointment } = require("./functions/appointment.update");
 
 class AppointmentController {
+  async index(req, res) {
+    // #swagger.tags = ['Appointment']
+    // #swagger.summary = 'Retorna todas os consultas cadastrados ou apenas a que de 1 paciente'
+    // #swagger.description = 'Endpoint retornar todas os consultas cadastradas no banco de dados.'
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/appointmentIndex200" }
+        } */
+    await findAllAppointment(req, res);
+  }
   async store(req, res) {
     // #swagger.tags = ['Appointment']
     // #swagger.summary = 'Cadastra uma nova consulta'
@@ -17,7 +28,9 @@ class AppointmentController {
           <li><b>description</b>: Descrição da consulta com máximo e mínimo de 16 e 1024 caracteres, respectivamente. <mark>Campo obrigatório</mark></li>
           <li><b>dosagePrecautions</b>: Descrição dos medicamentos e precauções para o paciente <mark>Campo não obrigatório</mark></li>
           <li><b>patientId</b>: O id do paciente <mark>Campo obrigatório</mark></li>
-         </u>",
+          <li><b>userId</b>: O id do usuario <mark>Campo obrigatório</mark></li>
+          <li><b>systemStatus</b>: Status no sistema, sendo sendo um boolean com valor TRUE. OBS: caso não informado, será cadastrado como Ativo</li>
+          </u>",
         type: "object",
         schema: { $ref: "#/definitions/appointmentStoreBody" },
         required: true} */
@@ -45,7 +58,7 @@ class AppointmentController {
     // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'Appointment ID.'}
     /* #swagger.responses[200] = { 
           description: 'Exemplo de resposta de sucesso',
-          schema: { $ref: "#/definitions/appointmentrDestroy200" }
+          schema: { $ref: "#/definitions/appointmentDestroy200" }
         } */
     /* #swagger.responses[400] = { 
           description: 'Exemplo de resposta de quando não for localizado uma consulta com o Id fornecido',
@@ -54,7 +67,7 @@ class AppointmentController {
     await deleteAppointment(req, res);
   }
   async update(req, res) {
-    // #swagger.tags = ['Appointments']
+    // #swagger.tags = ['Appointment']
     // #swagger.summary = 'Atualiza um consulta'
     // #swagger.description = 'Endpoint para atualizar um consulta por meio de seu Id.'
     // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'appointment ID.'}
@@ -69,6 +82,7 @@ class AppointmentController {
           <li><b>description</b>: Descrição da consulta com máximo e mínimo de 16 e 1024 caracteres, respectivamente. <mark>Campo obrigatório</mark></li>
           <li><b>dosagePrecautions</b>: Descrição dos medicamentos e precauções para o paciente <mark>Campo não obrigatório</mark></li>
           <li><b>patientId</b>: O id do paciente <mark>Campo obrigatório</mark></li>
+          <li><b>userId</b>: O id do usuario <mark>Campo obrigatório</mark></li>
          </u>",
             type: "object",
             schema: { $ref: "#/definitions/appointmentUpdateBody" },
