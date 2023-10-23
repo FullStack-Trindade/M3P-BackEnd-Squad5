@@ -1,5 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
+
+const userModel = require("./user.model");
 const patientModel = require("./patient.model");
 
 module.exports = (sequelize, DataTypes) => {
@@ -13,6 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       Address.hasMany(patientModel, {
         foreignKey: "addressId",
       });
+
+      Address.belongsTo(userModel);
     }
   }
   Address.init(
@@ -26,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       complement: DataTypes.STRING,
       neighborhood: DataTypes.STRING,
       referencePoint: DataTypes.STRING,
+      userId: DataTypes.INTEGER,
     },
     {
       sequelize,
