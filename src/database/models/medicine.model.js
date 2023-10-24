@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   Medicine.init(
     {
       name: DataTypes.STRING,
-      date: DataTypes.DATE,
+      date: DataTypes.DATEONLY,
+      time: DataTypes.TIME,
       type: DataTypes.ENUM,
       amount: DataTypes.FLOAT,
       unit: DataTypes.ENUM,
