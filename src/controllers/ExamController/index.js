@@ -21,23 +21,23 @@ class ExamController {
           <li><b>systemStatus</b>: Status no sistema, sendo sendo um boolean com valor TRUE. OBS: caso não informado, será cadastrado como Ativo</li>
         </ul>",
         type: "object",
-        schema: { $ref: "#/definitions/userStoreBody" },
+        schema: { $ref: "#/definitions/examStoreBody" },
         required: true} */
     /* #swagger.responses[201] = { 
           description: 'Exemplo de resposta de sucesso',
-          schema: { $ref: "#/definitions/userStore201" }
+          schema: { $ref: "#/definitions/examStore201" }
         } */
     /* #swagger.responses[400] = { 
-          description: 'Valida os campos e trás o motivo da falha.\n Exemplo: Cpf informado fora do padrão (123.456.789.10)',
-          schema: { $ref: "#/definitions/userStore400" }
+          description: 'Valida os campos e trás o motivo da falha.\n Exemplo: Resultado do exame com máximo e mínimo de 1024 e 16 caracteres, respectivamente.',
+          schema: { $ref: "#/definitions/examStore400" }
         } */
     /* #swagger.responses[409] = { 
           description: 'Erro de CPF e/ou E-mail já cadastrado\nExemplo: Tentativa de cadastrar um usuário com um e-mail existente no banco.',
-          schema: { $ref: "#/definitions/userStore409" }
+          schema: { $ref: "#/definitions/examStore409" }
         } */
     /* #swagger.responses[500] = { 
           description: 'Caso de erro ao gerar a resposta.\nExemplo: Tentando atribuir um novo valor a uma constante.',
-          schema: { $ref: "#/definitions/userStore500" }
+          schema: { $ref: "#/definitions/examStore500" }
         } */
     await createNewExam(req, res);
   }
