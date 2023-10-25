@@ -8,7 +8,15 @@ class Diet extends Model {
         name: DataTypes.STRING,
         date: DataTypes.DATEONLY,
         time: DataTypes.TIME,
-        dietType: DataTypes.ENUM,
+        dietType: DataTypes.ENUM(
+          "low carb",
+          "dash",
+          "paleolithic",
+          "ketogenic",
+          "dukan",
+          "mediterranean",
+          "other"
+        ),
         description: DataTypes.STRING,
         systemStatus: DataTypes.BOOLEAN,
         patientId: DataTypes.INTEGER,
