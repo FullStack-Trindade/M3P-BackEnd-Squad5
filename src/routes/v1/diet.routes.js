@@ -9,6 +9,7 @@ const {
   validateData: DietUpdateValidator,
 } = require("../../middlewares/yupValidate/Diet/updateDiet.middleware");
 
+router.get("/dietas", DietController.index);
 router.post("/dietas", DietCreateValidator, DietController.store);
 router.put("/dietas/:id", DietUpdateValidator, DietController.update);
 
