@@ -11,6 +11,7 @@ const {
 
 router.post("/medicamentos", MedicineCreateValidator, MedicineController.store);
 router.put("/medicamentos/:id", MedicineUpdateValidator, MedicineController.update);
+router.delete("/medicamentos/:id", MedicineController.destroy);
 
 
 module.exports = router;
