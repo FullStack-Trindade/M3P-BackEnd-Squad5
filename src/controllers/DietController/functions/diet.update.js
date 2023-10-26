@@ -15,6 +15,11 @@ module.exports.updateDiet = async (req, res) => {
         userId,
       },
     } = req;
+    if (id && isNaN(id)) {
+      const err = new Error("Id deve ser um INTEGER");
+      err.status = 400;
+      throw err;
+    }
     const [diet] = await Diet.update(
       {
         name,

@@ -27,6 +27,7 @@ const doc = {
       description: "Requisições de usuários",
     },
     { name: "Appointment", description: "Requisições de consultas" },
+    { name: "Exams", description: "Requisições de exames" },
   ],
 
   definitions: {
