@@ -1,7 +1,19 @@
+const { findAllDiet } = require("./functions/diet.index");
 const { createNewDiet } = require("./functions/diet.store");
 const { updateDiet } = require("./functions/diet.update");
 
 class DietController {
+  async index(req, res) {
+    // #swagger.tags = ['Diet']
+    // #swagger.summary = 'Retorna todas as dietas cadastradas ou apenas retorna as dietas de 1 paciente'
+    // #swagger.description = 'Endpoint retornar todas as dietas cadastradas no banco de dados.'
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/dietIndex200" }
+        } */
+
+    await findAllDiet(req, res);
+  }
   async store(req, res) {
     // #swagger.tags = ['Diet']
     // #swagger.summary = 'Cadastra uma nova dieta'
