@@ -8,8 +8,8 @@ const DietRouter = require("./v1/diet.routes");
 
 router.use("/api", UserRouter);
 router.use("/api", AppointmentRouter);
-
 router.use("/api", ExamRouter);
 router.use("/api", MedicineRouter);
 router.use("/api", DietRouter);
+
 module.exports = router;

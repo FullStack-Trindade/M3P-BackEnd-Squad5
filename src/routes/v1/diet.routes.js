@@ -5,6 +5,11 @@ const {
   validateData: DietCreateValidator,
 } = require("../../middlewares/yupValidate/Diet/createDiet.middleware");
 
-router.post("/dietas", DietCreateValidator, DietController.store);
+const {
+  validateData: DietUpdateValidator,
+} = require("../../middlewares/yupValidate/Diet/updateDiet.middleware");
+
+router.post("/dietass", DietCreateValidator, DietController.store);
+router.put("/dietas/:id", DietUpdateValidator, DietController.update);
 
 module.exports = router;
