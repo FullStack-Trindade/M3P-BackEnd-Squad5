@@ -7,7 +7,7 @@ module.exports.findAllDiet = async (req, res) => {
       query: { patientId },
     } = req;
     if ((patientId && isNaN(patientId)) || (id && isNaN(id))) {
-      const err = new Error("patientId deve ser um INTEGER");
+      const err = new Error("Id deve ser um INTEGER");
       err.status = 400;
       throw err;
     }
