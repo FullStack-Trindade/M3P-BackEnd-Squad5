@@ -13,5 +13,6 @@ router.get("/dietas", DietController.index);
 router.get("/dietas/:id", DietController.index);
 router.post("/dietas", DietCreateValidator, DietController.store);
 router.put("/dietas/:id", DietUpdateValidator, DietController.update);
+router.delete("/dietas/:id", DietController.destroy);
 
 module.exports = router;
