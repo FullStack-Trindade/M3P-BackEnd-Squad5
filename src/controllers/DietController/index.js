@@ -8,7 +8,7 @@ class DietController {
     /* #swagger.parameters["body"] = { 
         in: "body",
         description:"
-        <u>
+        <ul>
           <li><b>name</b>: Nome da dieta com máximo e mínimo de 100 e 5 caracteres, respectivamente.<mark>Campo obrigatório</mark></li>
           <li><b>date</b>: Data da dieta <mark>Campo obrigatório</mark></li>
           <li><b>time</b>:Hora da dieta <mark>Campo obrigatório</mark></span></li>
@@ -17,7 +17,7 @@ class DietController {
           <li><b>systemStatus</b>: Status no sistema, sendo sendo um boolean com valor TRUE. OBS: caso não informado, será cadastrado como Ativo</li>
           <li><b>patientId</b>: O id do paciente <mark>Campo obrigatório</mark></li>
           <li><b>userId</b>: O id do usuario <mark>Campo obrigatório</mark></li>
-          </u>",
+          </ul>",
         type: "object",
         schema: { $ref: "#/definitions/dietStoreBody" },
         required: true} */
