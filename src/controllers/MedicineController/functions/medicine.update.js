@@ -42,9 +42,7 @@ module.exports.updateMedicine = async (req, res) => {
         .send({ message: "Medicamento atualizado com sucesso" });
     }
   } catch (error) {
-    if (error.name === "SequelizeUniqueConstraintError") {
-      return res.status(409).send({ message: error.message });
-    }
+    
     return res
       .status(error.code || error.status || 500)
       .send({ message: error.message });
