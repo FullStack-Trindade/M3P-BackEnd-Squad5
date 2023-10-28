@@ -1,64 +1,60 @@
-"use strict";
-const { Model } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
-const addressModel = require("./address.model");
 const userModel = require("./user.model");
+const addressModel = require("./address.model");
 
-module.exports = (sequelize, DataTypes) => {
-  class Patient extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      Patient.belongsTo(addressModel);
-      Patient.belongsTo(userModel);
+class Patient extends Model {
+  static associate(models) {
+    Patient.belongsTo(addressModel);
+    Patient.belongsTo(userModel);
 
-      Patient.belongsToMany(userModel, {
-        through: "Appointment",
-      });
+    Patient.belongsToMany(userModel, {
+      through: "Appointment",
+    });
 
-      Patient.belongsToMany(userModel, {
-        through: "Diet",
-      });
-      Patient.belongsToMany(userModel, {
-        through: "Exam",
-      });
-      Patient.belongsToMany(userModel, {
-        through: "Medicine",
-      });
-      Patient.belongsToMany(userModel, {
-        through: "PhysicalExercise",
-      });
-    }
+    Patient.belongsToMany(userModel, {
+      through: "Diet",
+    });
+    Patient.belongsToMany(userModel, {
+      through: "Exam",
+    });
+    Patient.belongsToMany(userModel, {
+      through: "Medicine",
+    });
+    Patient.belongsToMany(userModel, {
+      through: "PhysicalExercise",
+    });
   }
-  Patient.init(
-    {
-      fullName: DataTypes.STRING,
-      gender: DataTypes.ENUM,
-      birthday: DataTypes.DATE,
-      cpf: DataTypes.STRING,
-      rg: DataTypes.STRING,
-      civilStatus: DataTypes.STRING,
-      phoneNumber: DataTypes.STRING,
-      email: DataTypes.STRING,
-      nationality: DataTypes.STRING,
-      emergencyContact: DataTypes.STRING,
-      listOfAllergies: DataTypes.STRING,
-      specificCare: DataTypes.STRING,
-      healthInsurance: DataTypes.STRING,
-      insuranceNumber: DataTypes.STRING,
-      insuranceExpirationDate: DataTypes.DATE,
-      userId: DataTypes.INTEGER,
-      addressId: DataTypes.INTEGER,
-      systemStatus: DataTypes.BOOLEAN,
-    },
-    {
-      sequelize,
-      modelName: "Patient",
-    }
-  );
 
-  return Patient;
-};
+  static init(sequelize) {
+    super.init(
+      {
+        fullName: DataTypes.STRING,
+        gender: DataTypes.ENUM({
+          values: ["single", "married", "divorced", "widowed", "separated"],
+        }),
+        birthday: DataTypes.DATE,
+        cpf: DataTypes.STRING,
+        rg: DataTypes.STRING,
+        civilStatus: DataTypes.STRING,
+        phoneNumber: DataTypes.STRING,
+        email: DataTypes.STRING,
+        nationality: DataTypes.STRING,
+        emergencyContact: DataTypes.STRING,
+        listOfAllergies: DataTypes.STRING,
+        specificCare: DataTypes.STRING,
+        healthInsurance: DataTypes.STRING,
+        insuranceNumber: DataTypes.STRING,
+        insuranceExpirationDate: DataTypes.STRING,
+        userId: DataTypes.INTEGER,
+        addressId: DataTypes.INTEGER,
+        systemStatus: DataTypes.BOOLEAN,
+      },
+      {
+        sequelize,
+        modelName: "Patient",
+      }
+    );
+  }
+}
+module.exports = Patient;
