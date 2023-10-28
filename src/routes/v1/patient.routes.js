@@ -2,9 +2,9 @@ const router = require("express").Router();
 const PatientController = require("../../controllers/PatientController");
 
 const {
-  validateData: createPatient,
+  validateData: createPatientValidate,
 } = require("../../middlewares/yupValidate/Patient/createPatient.middleware");
 
-router.post("/pacientes", PatientController.store);
+router.post("/pacientes", createPatientValidate, PatientController.store);
 
 module.exports = router;

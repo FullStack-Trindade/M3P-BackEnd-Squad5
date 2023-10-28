@@ -1,5 +1,8 @@
+const connection = require("../../../database");
+
 const Patient = require("../../../database/models/patient.model");
 const Address = require("../../../database/models/address.model");
+
 const { translate } = require("../../../services/translate");
 
 module.exports.createNewPatient = async (req, res) => {
@@ -21,8 +24,8 @@ module.exports.createNewPatient = async (req, res) => {
         healthInsurance,
         insuranceNumber,
         insuranceExpirationDate,
-        systemStatus,
-        userId = 1,
+        systemStatus = true,
+        userId,
         address: {
           zipCode,
           city,
@@ -36,43 +39,63 @@ module.exports.createNewPatient = async (req, res) => {
       },
     } = req;
 
-    const { id: addressId } = await Address.create({
-      zipCode,
-      city,
-      state,
-      street,
-      number,
-      complement,
-      neighborhood,
-      referencePoint,
-      userId,
-    });
+    let transaction;
+    transaction = await connection.transaction();
+    try {
+      const { id: addressId } = await Address.create(
+        {
+          zipCode,
+          city,
+          state,
+          street,
+          number,
+          complement,
+          neighborhood,
+          referencePoint,
+          userId,
+        },
+        { transaction }
+      );
 
-    const patient = await Patient.create({
-      fullName,
-      gender,
-      birthday,
-      cpf,
-      rg,
-      type: "pacient",
-      civilStatus: translate(civilStatus),
-      phoneNumber,
-      email,
-      nationality,
-      emergencyContact,
-      listOfAllergies,
-      specificCare,
-      healthInsurance,
-      insuranceNumber,
-      insuranceExpirationDate,
-      systemStatus,
-      userId,
-      addressId,
-    });
-    return res.status(200).send({ message: patient });
+      const patientObject = {
+        fullName,
+        gender,
+        birthday: new Date(birthday),
+        cpf,
+        rg,
+        type: "patient",
+        civilStatus: await translate(civilStatus),
+        phoneNumber,
+        email,
+        nationality,
+        emergencyContact,
+        listOfAllergies,
+        specificCare,
+        healthInsurance,
+        insuranceNumber,
+        insuranceExpirationDate,
+        systemStatus,
+        userId,
+        addressId,
+      };
+
+      await Patient.create(patientObject, {
+        transaction,
+      });
+      await transaction.commit();
+    } catch (error) {
+      if (transaction) await transaction.rollback();
+      let err = new Error();
+      err = error;
+      throw err;
+    }
+
+    return res.status(201).send({ message: "Paciente criado com sucesso" });
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
-      return res.status(409).send({ message: error.message });
+      return res
+        .status(409)
+        .send({ message: error.message, errors: error.errors });
     }
     return res
       .status(error.code || error.status || 500)
