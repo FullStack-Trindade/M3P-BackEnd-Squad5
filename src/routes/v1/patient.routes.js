@@ -5,6 +5,6 @@ const {
   validateData: createPatient,
 } = require("../../middlewares/yupValidate/Patient/createPatient.middleware");
 
-router.post("/pacientes", createPatient, PatientController.store);
+router.post("/pacientes", PatientController.store);
 
 module.exports = router;
