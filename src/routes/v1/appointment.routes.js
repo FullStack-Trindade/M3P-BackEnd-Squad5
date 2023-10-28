@@ -8,16 +8,39 @@ const {
   validateData: AppointmentUpdateValidator,
 } = require("../../middlewares/yupValidate/Appointment/updateAppointment.middleware");
 
-router.get("/consultas", AppointmentController.index);
-router.get("/consultas/:id", AppointmentController.index);
+const { authVerify } = require("../../middlewares/auth/auth.middleware");
+
+const {
+  medic: PermissionValidator
+} = require("../../middlewares/auth/permissions.middleware");
+
+router.get("/consultas",
+  authVerify,
+  PermissionValidator,
+  AppointmentController.index
+);
+router.get("/consultas/:id",
+  authVerify,
+  PermissionValidator,
+  AppointmentController.index
+);
 router.post(
   "/consultas",
+  authVerify,
+  PermissionValidator,
   AppointmentCreateValidator,
   AppointmentController.store
 );
-router.delete("/consultas/:id", AppointmentController.destroy);
+router.delete("/consultas/:id",
+  authVerify,
+  PermissionValidator,
+  AppointmentController.destroy
+);
+
 router.put(
   "/consultas/:id",
+  authVerify,
+  PermissionValidator,
   AppointmentUpdateValidator,
   AppointmentController.update
 );

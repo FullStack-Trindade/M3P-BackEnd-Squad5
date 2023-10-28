@@ -5,6 +5,12 @@ const {
   validateData: createPatientValidate,
 } = require("../../middlewares/yupValidate/Patient/createPatient.middleware");
 
-router.post("/pacientes", createPatientValidate, PatientController.store);
+const { authVerify } = require("../../middlewares/auth/auth.middleware");
+
+const {
+  nurse: PermissionValidator
+} = require("../../middlewares/auth/permissions.middleware");
+
+router.post("/pacientes", authVerify, PermissionValidator, createPatientValidate, PatientController.store);
 
 module.exports = router;
