@@ -1,6 +1,8 @@
 const { createNewMedicine } = require("./functions/medicine.store");
+const { deleteMedicine } = require("./functions/medicine.destroy");
 const { updateMedicine } = require("./functions/medicine.update");
 const { findAllMedicine } = require("./functions/medicine.index");
+
 
 
 class MedicineController {
@@ -89,6 +91,22 @@ class MedicineController {
               schema: { $ref: "#/definitions/medicineStore500" }
             } */
     await updateMedicine(req, res);
+  }
+
+  async destroy(req, res) {
+    // #swagger.tags = ['Medicine']
+    // #swagger.summary = 'Deleta um medicamento'
+    // #swagger.description = 'Endpoint para deletar um medicamento por meio de seu Id.'
+    // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'medicine ID.'}
+    /* #swagger.responses[202] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/medicineDestroy202" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Exemplo de resposta de quando não for localizado um medicamento com o Id fornecido',
+          schema: { $ref: "#/definitions/medicineDestroy400" }
+        } */
+    await deleteMedicine(req, res);
   }
 }
 
