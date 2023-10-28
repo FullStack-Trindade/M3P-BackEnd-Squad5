@@ -45,7 +45,7 @@ class Patient extends Model {
         specificCare: DataTypes.STRING,
         healthInsurance: DataTypes.STRING,
         insuranceNumber: DataTypes.STRING,
-        insuranceExpirationDate: DataTypes.DATE,
+        insuranceExpirationDate: DataTypes.STRING,
         userId: DataTypes.INTEGER,
         addressId: DataTypes.INTEGER,
         systemStatus: DataTypes.BOOLEAN,

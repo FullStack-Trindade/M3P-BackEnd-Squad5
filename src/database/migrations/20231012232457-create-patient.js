@@ -65,7 +65,7 @@ module.exports = {
         },
       },
       insuranceExpirationDate: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: true,
       },
       userId: {
