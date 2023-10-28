@@ -1,30 +1,33 @@
-"use strict";
-const { Model } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
-module.exports = (sequelize, DataTypes) => {
-  class Diet extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {}
+class Diet extends Model {
+  static associate(models) {}
+  static init(sequelize) {
+    super.init(
+      {
+        name: DataTypes.STRING,
+        date: DataTypes.DATEONLY,
+        time: DataTypes.TIME,
+        dietType: DataTypes.ENUM(
+          "low carb",
+          "dash",
+          "paleolithic",
+          "ketogenic",
+          "dukan",
+          "mediterranean",
+          "other"
+        ),
+        description: DataTypes.STRING,
+        systemStatus: DataTypes.BOOLEAN,
+        patientId: DataTypes.INTEGER,
+        userId: DataTypes.INTEGER,
+      },
+      {
+        sequelize,
+        modelName: "Diet",
+      }
+    );
   }
-  Diet.init(
-    {
-      name: DataTypes.STRING,
-      date: DataTypes.DATEONLY,
-      time: DataTypes.TIME,
-      dietType: DataTypes.ENUM,
-      description: DataTypes.STRING,
-      systemStatus: DataTypes.BOOLEAN,
-      patientId: DataTypes.INTEGER,
-      userId: DataTypes.INTEGER,
-    },
-    {
-      sequelize,
-      modelName: "Diet",
-    }
-  );
-  return Diet;
-};
+}
+
+module.exports = Diet;

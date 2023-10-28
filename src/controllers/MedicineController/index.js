@@ -1,6 +1,21 @@
 const { createNewMedicine } = require("./functions/medicine.store");
+const { deleteMedicine } = require("./functions/medicine.destroy");
+const { updateMedicine } = require("./functions/medicine.update");
+const { findAllMedicine } = require("./functions/medicine.index");
+
+
 
 class MedicineController {
+  async index(req, res) {
+    // #swagger.tags = ['Medicine']
+    // #swagger.summary = 'Retorna todas os medicamentos cadastrados ou apenas os atrelados a 1 paciente'
+    // #swagger.description = 'Endpoint para retornar todas os medicamentos cadastrados no banco de dados.'
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/medicineIndex200" }
+        } */
+    await findAllMedicine(req, res);
+  }
   async store(req, res) {
     // #swagger.tags = ['Medicine']
     // #swagger.summary = 'Cadastra um novo medicamento'
@@ -76,6 +91,22 @@ class MedicineController {
               schema: { $ref: "#/definitions/medicineStore500" }
             } */
     await updateMedicine(req, res);
+  }
+
+  async destroy(req, res) {
+    // #swagger.tags = ['Medicine']
+    // #swagger.summary = 'Deleta um medicamento'
+    // #swagger.description = 'Endpoint para deletar um medicamento por meio de seu Id.'
+    // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'medicine ID.'}
+    /* #swagger.responses[202] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/medicineDestroy202" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Exemplo de resposta de quando não for localizado um medicamento com o Id fornecido',
+          schema: { $ref: "#/definitions/medicineDestroy400" }
+        } */
+    await deleteMedicine(req, res);
   }
 }
 
