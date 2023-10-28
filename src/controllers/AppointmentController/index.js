@@ -21,7 +21,7 @@ class AppointmentController {
     /* #swagger.parameters["body"] = { 
         in: "body",
         description:"
-        <u>
+        <ul>
           <li><b>appointmentReason</b>: Motivo da consulta com máximo e mínimo de 64 e 8 caracteres, respectivamente.<mark>Campo obrigatório</mark></li>
           <li><b>appointmentDate</b>: Data da consulta <mark>Campo obrigatório</mark></li>
           <li><b>appointmentTime</b>:Hora da consulta <mark>Campo obrigatório</mark></span></li>
@@ -30,7 +30,7 @@ class AppointmentController {
           <li><b>patientId</b>: O id do paciente <mark>Campo obrigatório</mark></li>
           <li><b>userId</b>: O id do usuario <mark>Campo obrigatório</mark></li>
           <li><b>systemStatus</b>: Status no sistema, sendo sendo um boolean com valor TRUE. OBS: caso não informado, será cadastrado como Ativo</li>
-          </u>",
+          </ul>",
         type: "object",
         schema: { $ref: "#/definitions/appointmentStoreBody" },
         required: true} */
@@ -75,7 +75,7 @@ class AppointmentController {
     /* #swagger.parameters["body"] = { 
           in: "body",
         description:"
-        <u>
+        <ul>
           <li><b>appointmentReason</b>: Motivo da consulta com máximo e mínimo de 64 e 8 caracteres, respectivamente.<mark>Campo obrigatório</mark></li>
           <li><b>appointmentDate</b>: Data da consulta <mark>Campo obrigatório</mark></li>
           <li><b>appointmentTime</b>:Hora da consulta <mark>Campo obrigatório</mark></span></li>
@@ -83,7 +83,7 @@ class AppointmentController {
           <li><b>dosagePrecautions</b>: Descrição dos medicamentos e precauções para o paciente <mark>Campo não obrigatório</mark></li>
           <li><b>patientId</b>: O id do paciente <mark>Campo obrigatório</mark></li>
           <li><b>userId</b>: O id do usuario <mark>Campo obrigatório</mark></li>
-         </u>",
+         </ul>",
             type: "object",
             schema: { $ref: "#/definitions/appointmentUpdateBody" },
             required: true} */
