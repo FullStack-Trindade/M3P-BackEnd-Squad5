@@ -1,7 +1,21 @@
 const { createNewMedicine } = require("./functions/medicine.store");
 const { deleteMedicine } = require("./functions/medicine.destroy");
+const { updateMedicine } = require("./functions/medicine.update");
+const { findAllMedicine } = require("./functions/medicine.index");
+
+
 
 class MedicineController {
+  async index(req, res) {
+    // #swagger.tags = ['Medicine']
+    // #swagger.summary = 'Retorna todas os medicamentos cadastrados ou apenas os atrelados a 1 paciente'
+    // #swagger.description = 'Endpoint para retornar todas os medicamentos cadastrados no banco de dados.'
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/medicineIndex200" }
+        } */
+    await findAllMedicine(req, res);
+  }
   async store(req, res) {
     // #swagger.tags = ['Medicine']
     // #swagger.summary = 'Cadastra um novo medicamento'

@@ -8,7 +8,7 @@ const {
   validateData: MedicineUpdateValidator,
 } = require("../../middlewares/yupValidate/Medicine/updateMedicine.middleware");
 
-
+router.get("/medicamentos", MedicineController.index)
 router.post("/medicamentos", MedicineCreateValidator, MedicineController.store);
 router.put("/medicamentos/:id", MedicineUpdateValidator, MedicineController.update);
 router.delete("/medicamentos/:id", MedicineController.destroy);
