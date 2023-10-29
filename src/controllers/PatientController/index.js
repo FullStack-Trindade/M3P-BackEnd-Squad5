@@ -63,6 +63,18 @@ class PatientController {
   }
 
   async index(req, res) {
+    // #swagger.tags = ['Patients']
+    // #swagger.summary = 'Lista os pacientes cadastrados'
+    // #swagger.description = 'Endpoint para listar os pacientes.'
+
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/patientIndex200" }
+        } */
+    /* #swagger.responses[500] = { 
+          description: 'Caso de erro ao gerar a resposta.\nExemplo: Tentando atribuir um novo valor a uma constante.',
+          schema: { $ref: "#/definitions/userStore500" }
+        } */
     await findAllPatients(req, res);
   }
 }
