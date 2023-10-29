@@ -18,4 +18,7 @@ Exam.init(connection);
 Patient.init(connection);
 Address.init(connection);
 
+Patient.hasOne(Address, { foreignKey: "id" });
+Address.belongsTo(Patient, { foreignKey: "id" });
+
 module.exports = connection;

@@ -1,4 +1,5 @@
 const { createNewPatient } = require("./function/patient.store");
+const { findAllPatients } = require("./function/patient.index");
 
 class PatientController {
   async store(req, res) {
@@ -59,6 +60,10 @@ class PatientController {
         } */
 
     await createNewPatient(req, res);
+  }
+
+  async index(req, res) {
+    await findAllPatients(req, res);
   }
 }
 
