@@ -1,0 +1,42 @@
+29-10-2023 18:58:50 [35mhttp[39m: [35mPOST /api/usuarios/login 200 240 - 319.560 ms[39m
+[35m[39m
+29-10-2023 19:01:51 [35mhttp[39m: [35mPOST /api/usuarios/login 200 240 - 288.777 ms[39m
+[35m[39m
+29-10-2023 19:16:44 [35mhttp[39m: [35mPOST /api/usuarios/login 200 240 - 230.772 ms[39m
+[35m[39m
+29-10-2023 19:17:08 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 60.194 ms[39m
+[35m[39m
+29-10-2023 19:22:29 [35mhttp[39m: [35mGET /api/usuarios 500 1466 - 13.212 ms[39m
+[35m[39m
+29-10-2023 19:25:25 [35mhttp[39m: [35mGET /api/usuarios 500 1038 - 176.201 ms[39m
+[35m[39m
+29-10-2023 19:29:15 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 124.876 ms[39m
+[35m[39m
+29-10-2023 19:31:09 [35mhttp[39m: [35mPOST /api/usuarios 201 41 - 265.354 ms[39m
+[35m[39m
+29-10-2023 19:31:42 [35mhttp[39m: [35mGET /api/usuarios 200 1004 - 156.575 ms[39m
+[35m[39m
+29-10-2023 19:32:54 [35mhttp[39m: [35mDELETE /api/usuarios/4 400 30 - 7.941 ms[39m
+[35m[39m
+29-10-2023 19:33:07 [35mhttp[39m: [35mDELETE /api/usuarios/4 200 48 - 174.786 ms[39m
+[35m[39m
+29-10-2023 19:36:33 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 158.252 ms[39m
+[35m[39m
+29-10-2023 19:37:13 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 145.348 ms[39m
+[35m[39m
+29-10-2023 19:37:38 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 137.877 ms[39m
+[35m[39m
+29-10-2023 19:43:10 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 103.255 ms[39m
+[35m[39m
+29-10-2023 19:46:03 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 127.768 ms[39m
+[35m[39m
+29-10-2023 19:46:24 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 131.379 ms[39m
+[35m[39m
+29-10-2023 19:47:04 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 132.177 ms[39m
+[35m[39m
+29-10-2023 19:47:26 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 139.504 ms[39m
+[35m[39m
+29-10-2023 19:48:41 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 140.070 ms[39m
+[35m[39m
+29-10-2023 19:49:22 [35mhttp[39m: [35mGET /api/usuarios 200 723 - 133.149 ms[39m
+[35m[39m

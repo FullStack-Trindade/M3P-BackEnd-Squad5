@@ -24,6 +24,12 @@ router.get(
   PermissionValidator,
   PatientController.index
 );
+router.get(
+  "/pacientes/:id",
+  authVerify,
+  PermissionValidator,
+  PatientController.show
+);
 router.delete(
   "/pacientes/:id",
   authVerify,
