@@ -75,7 +75,7 @@ const doc = {
       ],
     },
     userDestroy200: { message: "Usuário foi deletado com sucesso." },
-    userDestroy400: { message: "Usuário foi deletado com sucesso." },
+    userDestroy400: { message: "Usuário não foi localizado." },
     userUpdateBody: {
       fullName: "John Doe",
       gender: "male",
@@ -204,6 +204,8 @@ const doc = {
         },
       ],
     },
+    patientDestroy200: { message: "Paciente foi deletado com sucesso." },
+    userDestroy400: { message: "O Id do paciente deve ser um número inteiro." },
   },
 };
 
