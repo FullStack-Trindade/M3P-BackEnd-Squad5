@@ -5,6 +5,12 @@ const {
   validateData: ExamCreateValidator,
 } = require("../../middlewares/yupValidate/Exam/createExam.middleware");
 
-router.post("/exames", ExamCreateValidator, ExamController.store);
+const { authVerify } = require("../../middlewares/auth/auth.middleware");
+
+const {
+  medic: PermissionValidator
+} = require("../../middlewares/auth/permissions.middleware");
+
+router.post("/exames", authVerify, PermissionValidator, ExamCreateValidator, ExamController.store);
 
 module.exports = router;

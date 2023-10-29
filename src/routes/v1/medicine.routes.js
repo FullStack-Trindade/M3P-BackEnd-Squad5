@@ -8,10 +8,16 @@ const {
   validateData: MedicineUpdateValidator,
 } = require("../../middlewares/yupValidate/Medicine/updateMedicine.middleware");
 
-router.get("/medicamentos", MedicineController.index)
-router.post("/medicamentos", MedicineCreateValidator, MedicineController.store);
-router.put("/medicamentos/:id", MedicineUpdateValidator, MedicineController.update);
-router.delete("/medicamentos/:id", MedicineController.destroy);
+const { authVerify } = require("../../middlewares/auth/auth.middleware");
+
+const {
+  nurse: PermissionValidator
+} = require("../../middlewares/auth/permissions.middleware");
+
+router.get("/medicamentos", authVerify, PermissionValidator, MedicineController.index)
+router.post("/medicamentos", authVerify, PermissionValidator, MedicineCreateValidator, MedicineController.store);
+router.put("/medicamentos/:id", authVerify, PermissionValidator, MedicineUpdateValidator, MedicineController.update);
+router.delete("/medicamentos/:id", authVerify, PermissionValidator, MedicineController.destroy);
 
 
 module.exports = router;
