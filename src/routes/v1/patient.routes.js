@@ -11,9 +11,6 @@ const {
 
 const { authVerify } = require("../../middlewares/auth/auth.middleware");
 
-// router.post("/pacientes", createPatientValidate, PatientController.store);
-// router.get("/pacientes", PatientController.index);
-
 router.post(
   "/pacientes",
   authVerify,
@@ -26,6 +23,12 @@ router.get(
   authVerify,
   PermissionValidator,
   PatientController.index
+);
+router.delete(
+  "/pacientes/:id",
+  authVerify,
+  PermissionValidator,
+  PatientController.destroy
 );
 
 module.exports = router;

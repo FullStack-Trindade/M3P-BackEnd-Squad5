@@ -1,5 +1,6 @@
 const { createNewPatient } = require("./function/patient.store");
 const { findAllPatients } = require("./function/patient.index");
+const { deletePatient } = require("./function/patient.destroy");
 
 class PatientController {
   async store(req, res) {
@@ -76,6 +77,22 @@ class PatientController {
           schema: { $ref: "#/definitions/userStore500" }
         } */
     await findAllPatients(req, res);
+  }
+
+  async destroy(req, res) {
+    // #swagger.tags = ['Patients']
+    // #swagger.summary = 'Deleta um paciente'
+    // #swagger.description = 'Endpoint para deletar um paciente por meio de seu Id.'
+    // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'User ID.'}
+    /* #swagger.responses[202] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/patientDestroy200" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Exemplo de resposta de quando é passado um Id não inteiro.',
+          schema: { $ref: "#/definitions/patientDestroy400" }
+        } */
+    await deletePatient(req, res);
   }
 }
 
