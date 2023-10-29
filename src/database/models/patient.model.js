@@ -5,7 +5,13 @@ const addressModel = require("./address.model");
 
 class Patient extends Model {
   static associate(models) {
-    Patient.belongsTo(addressModel);
+    // Patient.belongsTo(models.Address, {
+    //   foreignKey: "addressId", // Nome correto da chave estrangeira
+    //   as: "address",
+    // });
+
+    Patient.hasOne(addressModel, { foreignKey: "id", as: "address" });
+
     Patient.belongsTo(userModel);
 
     Patient.belongsToMany(userModel, {
@@ -53,6 +59,7 @@ class Patient extends Model {
       {
         sequelize,
         modelName: "Patient",
+        tableName: "Patients",
       }
     );
   }
