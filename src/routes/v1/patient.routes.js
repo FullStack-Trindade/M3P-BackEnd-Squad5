@@ -25,7 +25,6 @@ router.get(
   "/pacientes",
   authVerify,
   PermissionValidator,
-  createPatientValidate,
   PatientController.index
 );
 
