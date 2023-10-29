@@ -9,10 +9,16 @@ const {
   validateData: DietUpdateValidator,
 } = require("../../middlewares/yupValidate/Diet/updateDiet.middleware");
 
-router.get("/dietas", DietController.index);
-router.get("/dietas/:id", DietController.index);
-router.post("/dietas", DietCreateValidator, DietController.store);
-router.put("/dietas/:id", DietUpdateValidator, DietController.update);
-router.delete("/dietas/:id", DietController.destroy);
+const { authVerify } = require("../../middlewares/auth/auth.middleware");
+
+const {
+  nurse: PermissionValidator
+} = require("../../middlewares/auth/permissions.middleware");
+
+router.get("/dietas", authVerify, PermissionValidator, DietController.index);
+router.get("/dietas/:id", authVerify, PermissionValidator, DietController.index);
+router.post("/dietas", authVerify, PermissionValidator, DietCreateValidator, DietController.store);
+router.put("/dietas/:id", authVerify, PermissionValidator, DietUpdateValidator, DietController.update);
+router.delete("/dietas/:id", authVerify, PermissionValidator, DietController.destroy);
 
 module.exports = router;
