@@ -12,7 +12,7 @@ module.exports.findOnePatients = async (req, res) => {
       throw err;
     }
 
-    const patients = await Patient.findByPk(id, {
+    const patient = await Patient.findByPk(id, {
       attributes: { exclude: ["createdAt", "updatedAt"] },
       include: {
         model: Address,
@@ -29,13 +29,13 @@ module.exports.findOnePatients = async (req, res) => {
       },
     });
 
-    if (!patients) {
+    if (!patient) {
       return res.status(400).send({
         data: [],
         message: `Nenhum paciente encontrado com o ID ${id}`,
       });
     } else {
-      return res.status(200).send({ data: patients });
+      return res.status(200).send(patient);
     }
   } catch (error) {
     return res
