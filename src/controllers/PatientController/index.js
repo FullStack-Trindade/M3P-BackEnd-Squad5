@@ -1,5 +1,6 @@
 const { createNewPatient } = require("./function/patient.store");
 const { findAllPatients } = require("./function/patient.index");
+const { deletePatient } = require("./function/patient.destroy");
 
 class PatientController {
   async store(req, res) {
@@ -76,6 +77,10 @@ class PatientController {
           schema: { $ref: "#/definitions/userStore500" }
         } */
     await findAllPatients(req, res);
+  }
+
+  async destroy(req, res) {
+    await deletePatient(req, res);
   }
 }
 
