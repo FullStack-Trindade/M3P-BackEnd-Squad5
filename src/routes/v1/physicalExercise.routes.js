@@ -17,3 +17,5 @@ router.post(
   PermissionValidator,
   PhysicalExerciseController.store
 );
+
+module.exports = router;
