@@ -1,5 +1,6 @@
 const User = require("../../../database/models/user.model");
 const { formatPhoneNumber, Password } = require("../../../services");
+const {log} = require("../../../services/logger");
 
 module.exports.updateUser = async (req, res) => {
   console.log("bateu na função");
@@ -23,6 +24,7 @@ module.exports.updateUser = async (req, res) => {
     if (user == 0) {
       return res.status(400).send({ message: "Usuário não encontrado" });
     } else {
+      await log(res.locals.currentUser, `o usuário ${fullName}`, req);
       return res
         .status(200)
         .send({ message: "Usuário atualizado com sucesso" });

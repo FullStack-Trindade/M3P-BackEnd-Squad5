@@ -1,4 +1,5 @@
 const Diet = require("../../../database/models/diet.model");
+const {log} = require("../../../services/logger");
 
 module.exports.updateDiet = async (req, res) => {
   try {
@@ -37,6 +38,7 @@ module.exports.updateDiet = async (req, res) => {
     if (diet == 0) {
       return res.status(400).send({ message: "Consulta não encontrado" });
     } else {
+      await log(res.locals.currentUser, `a dieta ${id}`, req, patientId);
       return res
         .status(200)
         .send({ message: "Consulta atualizada com sucesso" });

@@ -2,6 +2,7 @@ const connection = require("../../../database");
 
 const Patient = require("../../../database/models/patient.model");
 const Address = require("../../../database/models/address.model");
+const {log} = require("../../../services/logger");
 
 module.exports.findAllPatients = async (req, res) => {
   try {
@@ -22,6 +23,7 @@ module.exports.findAllPatients = async (req, res) => {
       },
     });
 
+    await log(res.locals.currentUser, `os pacientes`, req);
     return res.status(200).send({ data: patients });
   } catch (error) {
     return res

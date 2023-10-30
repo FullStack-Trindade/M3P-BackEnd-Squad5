@@ -1,4 +1,5 @@
 const Diet = require("../../../database/models/diet.model");
+const {log} = require("../../../services/logger");
 
 module.exports.deleteDiet = async (req, res) => {
   try {
@@ -23,6 +24,7 @@ module.exports.deleteDiet = async (req, res) => {
         .status(400)
         .send({ message: `Nenhuma dieta localizada pelo id: ${id}` });
     } else {
+      await log(res.locals.currentUser, `a dieta ${id}`, req);
       return res
         .status(200)
         .send({ message: "Dieta foi deletado com sucesso." });

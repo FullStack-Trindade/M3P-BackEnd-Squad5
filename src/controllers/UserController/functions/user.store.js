@@ -1,6 +1,7 @@
 const User = require("../../../database/models/user.model");
 
 const { formatPhoneNumber, Password } = require("../../../services");
+const {log} = require("../../../services/logger");
 
 module.exports.createNewUser = async (req, res) => {
   try {
@@ -28,6 +29,7 @@ module.exports.createNewUser = async (req, res) => {
       password: await Password.encrypt(password),
     });
 
+    await log(res.locals.currentUser, `o usuário ${fullName}`, req);
     return res.status(201).send({ message: "Usuário criado com sucesso" });
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {

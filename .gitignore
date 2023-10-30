@@ -1,6 +1,7 @@
 # FOLDERS
 /node_modules
 /.vscode
+/.idea
 
 # FILES
 .env

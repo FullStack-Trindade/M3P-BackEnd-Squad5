@@ -1,5 +1,6 @@
 const Patient = require("../../../database/models/patient.model");
 const Address = require("../../../database/models/address.model");
+const {log} = require("../../../services/logger");
 
 module.exports.findOnePatients = async (req, res) => {
   const {
@@ -35,6 +36,7 @@ module.exports.findOnePatients = async (req, res) => {
         message: `Nenhum paciente encontrado com o ID ${id}`,
       });
     } else {
+      await log(res.locals.currentUser, `o paciente ${patient.fullName}`, req);
       return res.status(200).send(patient);
     }
   } catch (error) {

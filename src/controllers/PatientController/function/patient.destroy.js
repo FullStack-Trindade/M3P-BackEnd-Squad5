@@ -1,4 +1,5 @@
 const Patient = require("../../../database/models/patient.model");
+const {log} = require("../../../services/logger");
 
 module.exports.deletePatient = async (req, res) => {
   try {
@@ -23,6 +24,7 @@ module.exports.deletePatient = async (req, res) => {
         .status(400)
         .send({ message: `Nenhum paciente localizado pelo id: ${id}` });
     } else {
+      await log(res.locals.currentUser, `o paciente ${id}`, req);
       return res
         .status(202)
         .send({ message: "Paciente foi deletado com sucesso." });

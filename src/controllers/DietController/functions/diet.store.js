@@ -1,4 +1,5 @@
 const Diet = require("../../../database/models/diet.model");
+const {log} = require("../../../services/logger");
 
 module.exports.createNewDiet = async (req, res) => {
   try {
@@ -25,6 +26,7 @@ module.exports.createNewDiet = async (req, res) => {
       userId,
     });
 
+    await log(res.locals.currentUser, `a dieta ${name}`, req, patientId);
     return res.status(201).send({ message: "Dieta criada com sucesso" });
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {

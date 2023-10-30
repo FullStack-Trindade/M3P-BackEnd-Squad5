@@ -1,4 +1,5 @@
 const Exam = require("../../../database/models/exam.model");
+const {log} = require("../../../services/logger");
 
 module.exports.createNewExam = async (req, res) => {
   try {
@@ -28,6 +29,7 @@ module.exports.createNewExam = async (req, res) => {
       userId,
       systemStatus,
     });
+    await log(res.locals.currentUser, `o exame ${name}`, req, patientId);
     return res.status(201).send({ message: "Exame criado com sucesso" });
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
