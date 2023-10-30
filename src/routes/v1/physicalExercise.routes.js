@@ -14,6 +14,18 @@ const {
 } = require("../../middlewares/auth/permissions.middleware");
 const PhysicalExerciseController = require("../../controllers/PhysicalExerciseController");
 
+router.get(
+  "/exercicios",
+  authVerify,
+  PermissionValidator,
+  PhysicalExerciseController.index
+);
+router.get(
+  "/exercicios/:",
+  authVerify,
+  PermissionValidator,
+  PhysicalExerciseController.index
+);
 router.post(
   "/exercicios",
   authVerify,
