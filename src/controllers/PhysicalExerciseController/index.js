@@ -1,4 +1,10 @@
 const {
+  deletePhysicalExercise,
+} = require("./functions/physicalExercise.destroy.js");
+const {
+  findAllPhysicalExercise,
+} = require("./functions/physicalExercise.index.js");
+const {
   createNewPhysicalExercise,
 } = require("./functions/physicalExercise.store.js");
 const {
@@ -14,6 +20,7 @@ class PhysicalExercise {
           description: 'Exemplo de resposta de sucesso',
           schema: { $ref: "#/definitions/physicalExerciseIndex200" }
         } */
+    await findAllPhysicalExercise(req, res);
   }
   async store(req, res) {
     // #swagger.tags = ['PhysicalExercise']
@@ -89,6 +96,21 @@ class PhysicalExercise {
               schema: { $ref: "#/definitions/physicalExerciseStore500" }
             } */
     await updatePhysicalExercise(req, res);
+  }
+  async destroy(req, res) {
+    // #swagger.tags = ['PhysicalExercise']
+    // #swagger.summary = 'Deleta um exercicio'
+    // #swagger.description = 'Endpoint para deletar um exercicio físico por meio de seu Id.'
+    // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'physicalExercise ID.'}
+    /* #swagger.responses[202] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/physicalExerciseDestroy202" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Exemplo de resposta de quando não for localizado um exercicio físico com o Id fornecido',
+          schema: { $ref: "#/definitions/physicalExerciseDestroy400" }
+        } */
+    await deletePhysicalExercise(req, res);
   }
 }
 

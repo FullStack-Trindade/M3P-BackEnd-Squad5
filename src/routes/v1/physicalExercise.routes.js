@@ -21,7 +21,7 @@ router.get(
   PhysicalExerciseController.index
 );
 router.get(
-  "/exercicios/:",
+  "/exercicios/:id",
   authVerify,
   PermissionValidator,
   PhysicalExerciseController.index
@@ -39,6 +39,12 @@ router.put(
   PermissionValidator,
   PhysicalExerciseUpdateValidator,
   PhysicalExerciseController.update
+);
+router.delete(
+  "/exercicios/:id",
+  authVerify,
+  PermissionValidator,
+  PhysicalExerciseController.destroy
 );
 
 module.exports = router;
