@@ -6,6 +6,15 @@ const {
 } = require("./functions/physicalExercise.update.js");
 
 class PhysicalExercise {
+  async index(req, res) {
+    // #swagger.tags = ['PhysicalExercise']
+    // #swagger.summary = 'Retorna todos exercicios físicos cadastrados ou apenas os atrelados a 1 paciente'
+    // #swagger.description = 'Endpoint para retornar todos exercicios físicos cadastrados no banco de dados.'
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/physicalExerciseIndex200" }
+        } */
+  }
   async store(req, res) {
     // #swagger.tags = ['PhysicalExercise']
     // #swagger.summary = 'Cadastra um novo exercicio físico'
