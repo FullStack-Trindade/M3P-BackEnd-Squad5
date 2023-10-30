@@ -1,4 +1,5 @@
 const Medicine = require("../../../database/models/medicine.model");
+const {log} = require("../../../services/logger");
 
 module.exports.deleteMedicine = async (req, res) => {
   try {
@@ -23,6 +24,7 @@ module.exports.deleteMedicine = async (req, res) => {
         .status(400)
         .send({ message: `Nenhum medicamento localizado pelo id: ${id}` });
     } else {
+      await log(res.locals.currentUser, `o medicamento ${id}`, req);
       return res
         .status(202)
         .send({ message: "Medicamento excluído com sucesso." });

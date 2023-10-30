@@ -1,4 +1,5 @@
 const User = require("../../../database/models/user.model");
+const {log} = require("../../../services/logger");
 
 module.exports.deleteUser = async (req, res) => {
   try {
@@ -23,6 +24,7 @@ module.exports.deleteUser = async (req, res) => {
         .status(400)
         .send({ message: `Nenhum usuário localizado pelo id: ${id}` });
     } else {
+      await log(res.locals.currentUser, `o usuário ${id}`, req);
       return res
         .status(200)
         .send({ message: "Usuário foi deletado com sucesso." });

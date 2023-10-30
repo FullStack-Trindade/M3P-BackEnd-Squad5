@@ -1,4 +1,5 @@
 const Medicine = require("../../../database/models/medicine.model");
+const {log} = require("../../../services/logger");
 
 module.exports.updateMedicine = async (req, res) => {
   try {
@@ -37,6 +38,7 @@ module.exports.updateMedicine = async (req, res) => {
     if (medicine == 0) {
       return res.status(400).send({ message: "Medicamento não encontrado" });
     } else {
+      await log(res.locals.currentUser, `o medicamento ${name}`, req, patientId);
       return res
         .status(200)
         .send({ message: "Medicamento atualizado com sucesso" });

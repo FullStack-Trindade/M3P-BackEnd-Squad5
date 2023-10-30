@@ -1,25 +1,20 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Log extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
+const {Model, DataTypes} = require('sequelize');
+
+class Log extends Model {
+  static associate(models) {
+    // define association here
   }
-  Log.init({
-    message: DataTypes.STRING,
-    endpoint: DataTypes.STRING,
-    httpVerb: DataTypes.ENUM
-  }, {
-    sequelize,
-    modelName: 'Log',
-  });
-  return Log;
-};
+
+  static init(sequelize) {
+    super.init({
+      message: DataTypes.STRING,
+      endpoint: DataTypes.STRING,
+      httpVerb: DataTypes.ENUM("get", "post", "put", "delete")
+    }, {
+      sequelize,
+      modelName: 'Log',
+    })
+  }
+}
+
+module.exports = Log;

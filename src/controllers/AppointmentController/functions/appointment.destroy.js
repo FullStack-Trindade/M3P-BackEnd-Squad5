@@ -1,4 +1,6 @@
 const Appointment = require("../../../database/models/appointment.model");
+const Logger = require("../../../services/logger");
+const {log} = require("../../../services/logger");
 
 module.exports.deleteAppointment = async (req, res) => {
   try {
@@ -23,9 +25,10 @@ module.exports.deleteAppointment = async (req, res) => {
         .status(400)
         .send({ message: `Nenhuma consulta localizada pelo id: ${id}` });
     } else {
+      await log(res.locals.currentUser, `a consulta ${id}`, req);
       return res
         .status(200)
-        .send({ message: "Consulta foi deletado com sucesso." });
+        .send({ message: "Consulta foi deletada com sucesso." });
     }
   } catch (error) {
     return res
