@@ -9,6 +9,7 @@ const Patient = require("./models/patient.model");
 const Address = require("./models/address.model");
 const Diet = require("./models/diet.model");
 const Log = require("./models/log.model");
+const PhysicalExercise = require("./models/physicalExercise.model");
 const connection = new Sequelize(configDB);
 
 User.init(connection);
@@ -19,6 +20,7 @@ Exam.init(connection);
 Patient.init(connection);
 Address.init(connection);
 Log.init(connection);
+PhysicalExercise.init(connection);
 
 Patient.hasOne(Address, { foreignKey: "id" });
 Address.belongsTo(Patient, { foreignKey: "id" });
