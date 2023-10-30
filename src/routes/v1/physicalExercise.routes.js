@@ -2,7 +2,10 @@ const router = require("express").Router();
 
 const {
   validateData: PhysicalExerciseCreateValidator,
-} = require("../../middlewares/yupValidate/PhysicalExercise/PhysicalExercise.middleware");
+} = require("../../middlewares/yupValidate/PhysicalExercise/CreatePhysicalExercise.middleware");
+const {
+  validateData: PhysicalExerciseUpdateValidator,
+} = require("../../middlewares/yupValidate/PhysicalExercise/UpdatePhysicalExercise.middleware");
 
 const { authVerify } = require("../../middlewares/auth/auth.middleware");
 
@@ -15,7 +18,15 @@ router.post(
   "/exercicios",
   authVerify,
   PermissionValidator,
+  PhysicalExerciseCreateValidator,
   PhysicalExerciseController.store
+);
+router.put(
+  "/exercicios/:id",
+  authVerify,
+  PermissionValidator,
+  PhysicalExerciseUpdateValidator,
+  PhysicalExerciseController.update
 );
 
 module.exports = router;
