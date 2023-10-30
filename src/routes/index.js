@@ -6,6 +6,7 @@ const ExamRouter = require("./v1/exam.routes");
 const MedicineRouter = require("./v1/medicine.routes");
 const PatientRouter = require("./v1/patient.routes");
 const DietRouter = require("./v1/diet.routes");
+const ExerciseRouter = require("./v1/physicalExercise.routes");
 
 router.use("/api", [
   UserRouter,
@@ -14,6 +15,7 @@ router.use("/api", [
   MedicineRouter,
   PatientRouter,
   DietRouter,
+  ExerciseRouter,
 ]);
 
 module.exports = router;
