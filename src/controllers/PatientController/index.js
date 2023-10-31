@@ -68,6 +68,7 @@ class PatientController {
     // #swagger.tags = ['Patients']
     // #swagger.summary = 'Lista os pacientes cadastrados'
     // #swagger.description = 'Endpoint para listar os pacientes.'
+    // #swagger.parameters['email'] = {in: 'query', type: 'string', description: 'E-mail do paciente. (opcional)'}
 
     /* #swagger.responses[200] = { 
           description: 'Exemplo de resposta de sucesso',
