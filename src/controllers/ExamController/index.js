@@ -52,6 +52,20 @@ class ExamController {
         } */
     await createNewExam(req, res);
   }
+  async destroy(req, res) {
+    // #swagger.tags = ['Exams']
+    // #swagger.summary = 'Deleta um exame'
+    // #swagger.description = 'Endpoint para deletar uma exame por meio de seu Id.'
+    // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'Exam ID.'}
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/examDestroy200" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Exemplo de resposta de quando não for localizado um exame com o Id fornecido',
+          schema: { $ref: "#/definitions/examDestroy400" }
+        } */
+  }
 }
 
 module.exports = new ExamController();
