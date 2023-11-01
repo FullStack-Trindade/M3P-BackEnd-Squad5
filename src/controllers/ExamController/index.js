@@ -1,6 +1,17 @@
+const { findAllExam } = require("./functions/exam.index");
 const { createNewExam } = require("./functions/exam.store");
 
 class ExamController {
+  async index(req, res) {
+    // #swagger.tags = ['Exams']
+    // #swagger.summary = 'Retorna todos os exames cadastradas ou apenas retorna os exames de 1 paciente'
+    // #swagger.description = 'Endpoint retornar todos os exames cadastradas no banco de dados.'
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/examIndex200" }
+        } */
+    await findAllExam(req, res);
+  }
   async store(req, res) {
     // #swagger.tags = ['Exams']
     // #swagger.summary = 'Cadastrar um novo exame'
