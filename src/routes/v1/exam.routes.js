@@ -8,9 +8,22 @@ const {
 const { authVerify } = require("../../middlewares/auth/auth.middleware");
 
 const {
-  medic: PermissionValidator
+  medic: PermissionValidator,
 } = require("../../middlewares/auth/permissions.middleware");
 
-router.post("/exames", authVerify, PermissionValidator, ExamCreateValidator, ExamController.store);
+router.post(
+  "/exames",
+  authVerify,
+  PermissionValidator,
+  ExamCreateValidator,
+  ExamController.store
+);
+router.get("/exames", authVerify, PermissionValidator, ExamController.index);
+router.get(
+  "/exames/:id",
+  authVerify,
+  PermissionValidator,
+  ExamController.index
+);
 
 module.exports = router;
