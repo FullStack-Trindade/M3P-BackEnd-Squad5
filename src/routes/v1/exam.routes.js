@@ -25,5 +25,11 @@ router.get(
   PermissionValidator,
   ExamController.index
 );
+router.delete(
+  "/exames/:id",
+  authVerify,
+  PermissionValidator,
+  ExamController.destroy
+);
 
 module.exports = router;
