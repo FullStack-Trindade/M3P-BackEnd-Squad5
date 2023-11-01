@@ -240,6 +240,42 @@ const doc = {
       },
     },
     patientShow400: { message: "Id deve ser um INTEGER" },
+    patientUpdateBody: {
+      fullName: "tiago Ferreira",
+      gender: "male",
+      birthday: "1984-03-13",
+      civilStatus: "married",
+      phoneNumber: "79998355326",
+      email: "tiago.ferreira@supracolor.com.br",
+      nationality: "brasileiro",
+      emergencyContact: "7938460870",
+      listOfAllergies: "camarão, lagosta, lula",
+      specificCare: "",
+      healthInsurance: "",
+      insuranceNumber: "",
+      insuranceExpirationDate: "2023-1-1",
+      systemStatus: true,
+      address: {
+        zipCode: "49067080",
+        city: "Aracaju",
+        state: "SE",
+        street: "Visconde  dos Santos",
+        number: "vaca",
+        complement: "",
+        neighborhood: "Porto D'Antas",
+        referencePoint: "",
+      },
+    },
+    patientUpdate200: { message: "Paciente atualizado com sucesso" },
+    patientUpdate400: {
+      type: "ValidationError",
+      message: "Campo nome é obrigatório",
+      errors: ["Campo nome é obrigatório"],
+    },
+    patientUpdate500: {
+      message:
+        'invalid input syntax for type timestamp with time zone: "Invalid date"',
+    },
   },
 };
 
