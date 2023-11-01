@@ -115,6 +115,56 @@ class PatientController {
   }
 
   async update(req, res) {
+    // #swagger.tags = ['Patients']
+    // #swagger.summary = 'Atualiza um paciente'
+    // #swagger.description = 'Endpoint para atualizar um paciente e seu endereço.'
+    // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: ' ID do paciente.'}
+    /* #swagger.parameters["body"] = { 
+        in: "body",
+        description:"
+        <u>
+          <li><b>fullName</b>: Nome do paciente com máximo e mínimo de 64 e 8 caracteres, respectivamente.<mark>Campo obrigatório</mark></li>
+          <li><b>gender</b>: Genero do paciente, com opções pré-definidas: male, female, other. <mark>Campo obrigatório</mark></li>
+          <li><b>birthday</b>: Data de nascimento do paciente, no formato YYYY-MM-DD.<mark>Campo obrigatório</mark></li>
+          <li><b>civilStatus</b>: Estado civil do paciente, deve contemplar um dos seguintes valores: single, married, divorced, widowed, separated. <mark>Campo obrigatório</mark></span></li>
+          <li><b>phoneNumber</b>: Telefone do usuário, deve ser informado apenas os números e deve possui o DDD: 21988887777. <mark>Campo obrigatório</mark></li>
+          <li><b>email</b>: E-mail utilizado pelo paciente. <mark>Campo obrigatório</mark></li>
+          <li><b>nationality</b>: Nacionalidade do paciente. Campo deve ter de 8 a 64 caracteres <mark>Campo obrigatório</mark></li>
+          <li><b>emergencyContact</b>: Contato de emergencia do paciente, deve ser informado apenas os números e deve possui o DDD: 21988887777. <mark>Campo obrigatório</mark></li>
+          <li><b>listOfAllergies</b>: Lista de alergias do paciente.</li>
+          <li><b>specificCare</b>: Cuidados especiais do paciente.</li>
+          <li><b>healthInsurance</b>: Convênio do paciente.</li>
+          <li><b>insuranceNumber</b>: Número do convênio do paciente.</li>
+          <li><b>insuranceExpirationDate</b>: Validade do convênio do paciente. Deve estar no formato  YYYY-MM-DD</li>
+          <li><b>systemStatus</b>: Status no sistema, sendo sendo um boolean com valor TRUE. OBS: caso não informado, <mark>será cadastrado como TRUE(Ativo)</mark></li>
+          <li><b>address</b>: Objeto com os dados do endereço do paciente, sendo eles:</li>
+          <ul>
+            <li>zipCode: CEP do paciente.<mark>Campo Obrigatório</mark></li>
+            <li>city: Cidade do paciente.<mark>Campo Obrigatório</mark></li>
+            <li>state: Estado do paciente.<mark>Campo Obrigatório</mark></li>
+            <li>street: Logradouro do paciente.<mark>Campo Obrigatório</mark></li>
+            <li>number: Numero do logradouro do paciente.<mark>Campo Obrigatório</mark></li>
+            <li>complement: Complemento do logradouro, caso exista.</li>
+            <li>neighborhood: Bairro do paciente.<mark>Campo Obrigatório</mark></li>
+            <li>referencePoint: Ponto de referencia</li>
+          </ul>
+        </u>",
+        type: "object",
+        schema: { $ref: "#/definitions/patientUpdateBody" },
+        required: true} */
+
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/patientUpdate200" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Quando deixamos de informa algum campo',
+          schema: { $ref: "#/definitions/patientUpdate400" }
+        } */
+    /* #swagger.responses[500] = { 
+          description: 'Caso de erro ao gerar a resposta.\nExemplo: Tentando atribuir um valor incompativel com campo.',
+          schema: { $ref: "#/definitions/patientUpdate500" }
+        } */
     await updatePatient(req, res);
   }
 }
