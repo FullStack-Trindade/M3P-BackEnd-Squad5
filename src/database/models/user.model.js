@@ -1,34 +1,14 @@
 const { Model, DataTypes } = require("sequelize");
 
-const patientModel = require("./patient.model");
-const addressModel = require("./address.model");
-
 class User extends Model {
   static associate(models) {
-    User.hasMany(patientModel, {
-      foreignKey: "userId",
-    });
-
-    User.hasMany(addressModel, {
-      foreignKey: "userId",
-    });
-
-    User.belongsToMany(patientModel, {
-      through: "Appointment",
-    });
-
-    User.belongsToMany(patientModel, {
-      through: "Diet",
-    });
-    User.belongsToMany(patientModel, {
-      through: "Exam",
-    });
-    User.belongsToMany(patientModel, {
-      through: "Medicine",
-    });
-    User.belongsToMany(patientModel, {
-      through: "PhysicalExercise",
-    });
+    User.hasMany(models.Patient);
+    User.hasMany(models.Address);
+    User.hasMany(models.Appointment);
+    User.hasMany(models.Diet);
+    User.hasMany(models.Exam);
+    User.hasMany(models.Medicine);
+    User.hasMany(models.PhysicalExercise);
   }
   static init(sequelize) {
     super.init(
@@ -58,7 +38,8 @@ class User extends Model {
       },
       {
         sequelize,
-        modelName: "User",
+        modelName: "user",
+        tableName: "Users"
       }
     );
   }

@@ -1,35 +1,20 @@
 const { Model, DataTypes } = require("sequelize");
 
-const userModel = require("./user.model");
-const addressModel = require("./address.model");
-
 class Patient extends Model {
   static associate(models) {
-    // Patient.belongsTo(models.Address, {
-    //   foreignKey: "addressId", // Nome correto da chave estrangeira
-    //   as: "address",
-    // });
+    Patient.belongsTo(models.Address, { foreignKey: "addressId" });
 
-    Patient.hasOne(addressModel, { foreignKey: "id", as: "address" });
+    Patient.belongsTo(models.User);
 
-    Patient.belongsTo(userModel);
+    Patient.hasMany(models.Appointment);
 
-    Patient.belongsToMany(userModel, {
-      through: "Appointment",
-    });
+    Patient.hasMany(models.Diet);
 
-    Patient.belongsToMany(userModel, {
-      through: "Diet",
-    });
-    Patient.belongsToMany(userModel, {
-      through: "Exam",
-    });
-    Patient.belongsToMany(userModel, {
-      through: "Medicine",
-    });
-    Patient.belongsToMany(userModel, {
-      through: "PhysicalExercise",
-    });
+    Patient.hasMany(models.Exam);
+
+    Patient.hasMany(models.Medicine);
+
+    Patient.hasMany(models.PhysicalExercise);
   }
 
   static init(sequelize) {
@@ -37,12 +22,14 @@ class Patient extends Model {
       {
         fullName: DataTypes.STRING,
         gender: DataTypes.ENUM({
-          values: ["single", "married", "divorced", "widowed", "separated"],
+          values: ["male", "female", "other"]
         }),
         birthday: DataTypes.DATE,
         cpf: DataTypes.STRING,
         rg: DataTypes.STRING,
-        civilStatus: DataTypes.STRING,
+        civilStatus: DataTypes.ENUM({
+          values: ["single", "married", "divorced", "widowed", "separated"],
+        }),
         phoneNumber: DataTypes.STRING,
         email: DataTypes.STRING,
         nationality: DataTypes.STRING,
@@ -58,7 +45,7 @@ class Patient extends Model {
       },
       {
         sequelize,
-        modelName: "Patient",
+        modelName: "patient",
         tableName: "Patients",
       }
     );

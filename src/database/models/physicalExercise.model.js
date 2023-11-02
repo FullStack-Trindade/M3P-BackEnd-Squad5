@@ -1,6 +1,10 @@
 const { Model, DataTypes } = require("sequelize");
 class PhysicalExercise extends Model {
-  static associate(models) {}
+  static associate(models) {
+    PhysicalExercise.belongsTo(models.Patient);
+
+    PhysicalExercise.belongsTo(models.User)
+  }
   static init(sequelize) {
     super.init(
       {
@@ -23,7 +27,8 @@ class PhysicalExercise extends Model {
       },
       {
         sequelize,
-        modelName: "PhysicalExercise",
+        modelName: "physicalExercise",
+        tableName: "PhysicalExercises"
       }
     );
   }

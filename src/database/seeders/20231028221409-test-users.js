@@ -17,6 +17,7 @@ module.exports = {
     */
    await queryInterface.bulkInsert("Users", [
       {
+        id: 1,
         fullName: "Admin User",
         gender: "male",
         email: "admin@email.com",
@@ -28,6 +29,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 2,
         fullName: "Medic User",
         gender: "female",
         email: "medic@email.com",
@@ -39,6 +41,7 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        id: 3,
         fullName: "Nurse User",
         gender: "male",
         email: "nurse@email.com",

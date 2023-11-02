@@ -10,19 +10,14 @@ const Address = require("./models/address.model");
 const Diet = require("./models/diet.model");
 const Log = require("./models/log.model");
 const PhysicalExercise = require("./models/physicalExercise.model");
+const models = {User, Appointment, Medicine, Exam, Patient, Address, Diet, Log, PhysicalExercise}
 const connection = new Sequelize(configDB);
 
-User.init(connection);
-Appointment.init(connection);
-Medicine.init(connection);
-Diet.init(connection);
-Exam.init(connection);
-Patient.init(connection);
-Address.init(connection);
-Log.init(connection);
-PhysicalExercise.init(connection);
-
-Patient.hasOne(Address, { foreignKey: "id" });
-Address.belongsTo(Patient, { foreignKey: "id" });
+for (let key in models) {
+  models[key].init(connection);
+}
+for (let key in models) {
+  models[key].associate(models);
+}
 
 module.exports = connection;
