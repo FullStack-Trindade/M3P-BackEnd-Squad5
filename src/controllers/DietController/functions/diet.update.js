@@ -36,12 +36,12 @@ module.exports.updateDiet = async (req, res) => {
     );
 
     if (diet == 0) {
-      return res.status(400).send({ message: "Consulta não encontrado" });
+      return res.status(400).send({ message: "Dieta não encontrado" });
     } else {
       await log(res.locals.currentUser, `a dieta ${id}`, req, patientId);
       return res
         .status(200)
-        .send({ message: "Consulta atualizada com sucesso" });
+        .send({ message: "Dieta atualizada com sucesso" });
     }
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {

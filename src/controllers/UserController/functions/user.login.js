@@ -21,7 +21,7 @@ module.exports.userLogin = async (req, res) => {
     });
 
     if (!user) {
-      const err = new Error("Usuário / Senha invalido(s)");
+      const err = new Error("Usuário / Senha inválido(s)");
       err.code = 401;
       throw err;
     }
@@ -29,7 +29,7 @@ module.exports.userLogin = async (req, res) => {
     const validatePassword = Password.compare(password, user.password);
 
     if (!validatePassword) {
-      const err = new Error("Usuário / Senha invalido(s)");
+      const err = new Error("Usuário / Senha inválido(s)");
       err.code = 401;
       throw err;
     }

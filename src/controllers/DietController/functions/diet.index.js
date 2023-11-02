@@ -18,7 +18,7 @@ module.exports.findAllDiet = async (req, res) => {
         const err = new Error("Dieta não encontrado");
         return res.status(400).send(` message: ${err} `);
       }
-      await log(res.locals.currentUser, `a consulta ${id}`, req, diet.patientId);
+      await log(res.locals.currentUser, `a dieta ${id}`, req, diet.patientId);
       return res.status(200).send({ data: diet });
     }
     const diet = patientId
