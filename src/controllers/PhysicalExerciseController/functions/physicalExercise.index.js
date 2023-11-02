@@ -20,7 +20,7 @@ module.exports.findAllPhysicalExercise = async (req, res) => {
       }
       await log(
         res.locals.currentUser,
-        `a consulta ${id}`,
+        `o exercício físico ${id}`,
         req,
         physicalExercise.patientId
       );
@@ -31,7 +31,7 @@ module.exports.findAllPhysicalExercise = async (req, res) => {
       : await PhysicalExercise.findAll();
     await log(
       res.locals.currentUser,
-      `os exercicios físicos ${id}`,
+      `os exercícios físicos ${id}`,
       req,
       patientId
     );
