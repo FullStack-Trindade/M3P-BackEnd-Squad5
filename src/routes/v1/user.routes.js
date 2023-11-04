@@ -15,7 +15,7 @@ const {
 const { authVerify } = require("../../middlewares/auth/auth.middleware");
 
 const {
-  admin: PermissionValidator
+  admin: PermissionValidator,
 } = require("../../middlewares/auth/permissions.middleware");
 
 router.post(
@@ -25,9 +25,32 @@ router.post(
   UserController.resetPassword
 );
 router.post("/usuarios/login", LoginValidator, UserController.login);
-router.delete("/usuarios/:id", authVerify, PermissionValidator, UserController.destroy);
-router.put("/usuarios/:id", authVerify, PermissionValidator, UserUpdateValidator, UserController.update);
-router.post("/usuarios", authVerify, PermissionValidator, UserCreateValidator, UserController.store);
+router.delete(
+  "/usuarios/:id",
+  authVerify,
+  PermissionValidator,
+  UserController.destroy
+);
+router.put(
+  "/usuarios/:id",
+  authVerify,
+  PermissionValidator,
+  UserUpdateValidator,
+  UserController.update
+);
+router.post(
+  "/usuarios",
+  authVerify,
+  PermissionValidator,
+  UserCreateValidator,
+  UserController.store
+);
 router.get("/usuarios", authVerify, PermissionValidator, UserController.index);
+router.get(
+  "/usuarios/:id",
+  authVerify,
+  PermissionValidator,
+  UserController.show
+);
 
 module.exports = router;
