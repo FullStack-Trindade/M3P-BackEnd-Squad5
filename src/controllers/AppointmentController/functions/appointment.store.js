@@ -1,5 +1,5 @@
 const Appointment = require("../../../database/models/appointment.model");
-const {log} = require("../../../services/logger");
+const { log } = require("../../../services/logger");
 
 module.exports.createNewAppointment = async (req, res) => {
   try {
@@ -27,7 +27,6 @@ module.exports.createNewAppointment = async (req, res) => {
       userId,
       systemStatus,
     });
-    await log(res.locals.currentUser, "uma consulta", req.endpoint, req.method)
     return res.status(201).send({ message: "Consulta criada com sucesso" });
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
