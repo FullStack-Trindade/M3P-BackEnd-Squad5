@@ -31,7 +31,7 @@ module.exports.createNewPhysicalExercise = async (req, res) => {
 
     await log(
       res.locals.currentUser,
-      `o exercicio ${exerciseName}`,
+      `o exercicio físico ${exerciseName}`,
       req,
       patientId
     );

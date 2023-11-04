@@ -40,7 +40,7 @@ module.exports.updatePhysicalExercise = async (req, res) => {
     } else {
       await log(
         res.locals.currentUser,
-        `o exercicio ${exerciseName}`,
+        `o exercicio físico ${exerciseName}`,
         req,
         patientId
       );

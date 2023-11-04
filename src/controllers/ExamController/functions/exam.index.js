@@ -20,7 +20,7 @@ module.exports.findAllExam = async (req, res) => {
       }
       await log(
         res.locals.currentUser,
-        `a consulta ${id}`,
+        `o exame ${id}`,
         req,
         exam.patientId
       );
