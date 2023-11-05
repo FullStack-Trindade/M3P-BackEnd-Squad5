@@ -23,7 +23,7 @@ router.post(
 );
 
 router.put(
-  "/exames",
+  "/exames/:id",
   authVerify,
   PermissionValidator,
   ExamUpdateValidator,

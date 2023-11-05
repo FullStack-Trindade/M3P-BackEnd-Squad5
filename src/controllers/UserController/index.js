@@ -4,6 +4,7 @@ const { deleteUser } = require("./functions/user.destroy");
 const { updateUser } = require("./functions/user.update");
 const { userLogin } = require("./functions/user.login");
 const { resetUserPassword } = require("./functions/user.resetPassword");
+const { findOneUser } = require("./functions/user.show");
 
 class UsersController {
   async index(req, res) {
@@ -103,6 +104,21 @@ class UsersController {
           schema: { $ref: "#/definitions/userStore500" }
         } */
     await updateUser(req, res);
+  }
+  async show(req, res) {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Exibe um usuario pelo ID'
+    // #swagger.description = 'Endpoint para exibir os dados de um usuario por meio de seu Id.'
+    // #swagger.parameters['id'] = {in: 'path', type: 'integer', description: 'User ID.'}
+    /* #swagger.responses[200] = { 
+          description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/usersShow200" }
+        } */
+    /* #swagger.responses[400] = { 
+          description: 'Exemplo de resposta de quando é passado um Id não inteiro.',
+          schema: { $ref: "#/definitions/usersShow400" }
+        } */
+    await findOneUser(req, res);
   }
   async login(req, res) {
     await userLogin(req, res);
