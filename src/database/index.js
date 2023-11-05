@@ -10,7 +10,19 @@ const Address = require("./models/address.model");
 const Diet = require("./models/diet.model");
 const Log = require("./models/log.model");
 const PhysicalExercise = require("./models/physicalExercise.model");
-const models = {User, Appointment, Medicine, Exam, Patient, Address, Diet, Log, PhysicalExercise}
+const ConfigTheme = require("./models/configTheme.model");
+const models = {
+  User,
+  Appointment,
+  Medicine,
+  Exam,
+  Patient,
+  Address,
+  Diet,
+  Log,
+  PhysicalExercise,
+  ConfigTheme,
+};
 const connection = new Sequelize(configDB);
 
 for (let key in models) {
