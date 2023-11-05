@@ -27,6 +27,13 @@ module.exports.createNewAppointment = async (req, res) => {
       userId,
       systemStatus,
     });
+
+    await log(
+      res.locals.currentUser,
+      `a consulta ${appointmentReason}`,
+      req,
+      patientId
+    );
     return res.status(201).send({ message: "Consulta criada com sucesso" });
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
