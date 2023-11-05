@@ -37,7 +37,7 @@ module.exports.validateData = async (req, res, next) => {
         .matches(/\d{10,11}/, "Campo telefone deve conter de 10 a 11 números")
         .required("Campo telefone obrigatório"),
       email: yup
-        .string("type de email é invalido")
+        .string("Campo de email é invalido")
         .min(2, "Email deve conter pelo menos 3 caracteres")
         .matches(
           /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -61,13 +61,9 @@ module.exports.validateData = async (req, res, next) => {
       specificCare: yup.string("Lista de cuidados deve ser do tipo string"),
       healthInsurance: yup.string("Convenio deve ser do tipo string"),
       insuranceNumber: yup.string("Número do convenio deve ser do tipo string"),
-      insuranceExpirationDate: yup
-        .string(
-          "Validade do convenio deve estar no formato YYYY-MM-DD e deve ser uma string"
-        )
-        .matches(
-          /^(?:19|20)\d{2}-(?:(?:0?[1-9]|1[0-2])-(?:0?[1-9]|[12]\d|3[01])|(?:0?[1-9]|1[0-2])-(?:0?[1-9]|[12]\d|30)|(?:0?[13578]|1[02])-(?:0?[1-9]|1\d|2\d))$/
-        ),
+      insuranceExpirationDate: yup.string(
+        "Validade do convenio deve estar no formato YYYY-MM-DD e deve ser uma string"
+      ),
       systemStatus: yup
         .boolean("Campo deve iniciar com um boolean")
         .required("Campo Status do Sistema deve inicializar como ATIVO"),
