@@ -5,10 +5,10 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.bulkInsert("ConfigThemes", [
       {
-        primaryColor: "red",
-        secondaryColor: "blue",
-        primaryTextColor: "blue",
-        secondaryTextColor: "red",
+        primaryColor: "#66CDAA",
+        secondaryColor: "#AFEEEE",
+        primaryTextColor: "#00BFFF",
+        secondaryTextColor: "#4169E1",
         companyName: "Garcia Care",
         slogan: "Saude Graciosa",
         logo: "https://a.imagem.app/oxM0yy.png",
