@@ -74,7 +74,7 @@ class ConfigThemeController {
             required: true} */
 
     /* #swagger.responses[200] = { 
-              description: 'Exemplo de resposta de sucesso',
+              description: 'Exemplo de  resposta de sucesso',
               schema: { $ref: "#/definitions/configThemeUpdate200" }
             } */
     /* #swagger.responses[400] = { 
