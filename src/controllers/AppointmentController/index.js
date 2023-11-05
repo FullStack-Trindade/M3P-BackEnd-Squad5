@@ -62,7 +62,7 @@ class AppointmentController {
         } */
     /* #swagger.responses[400] = { 
           description: 'Exemplo de resposta de quando não for localizado uma consulta com o Id fornecido',
-          schema: { $ref: "#/definitions/appointmentDestroy200" }
+          schema: { $ref: "#/definitions/appointmentDestroy400" }
         } */
     await deleteAppointment(req, res);
   }

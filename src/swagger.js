@@ -32,6 +32,437 @@ const doc = {
   ],
 
   definitions: {
+    appointmentIndex200: {
+      data: [
+        {
+          appointmentReason: "Dor de cabeça",
+          appointmentDate: "2023-10-15",
+          appointmentTime: "10:00",
+          description: "Dor de cabeça",
+          prescriptionMedication: "Dipirona",
+          dosagePrecautions: "1 comprimido a cada 6 horas",
+          patientId: 1,
+          userId: 1,
+          systemStatus: true,
+        }
+      ]
+    },
+    appointmentStoreBody: {
+      appointmentReason: "Dor de cabeça",
+      appointmentDate: "2023-10-15",
+      appointmentTime: "10:00",
+      description: "Dor de cabeça",
+      prescriptionMedication: "Dipirona",
+      dosagePrecautions: "1 comprimido a cada 6 horas",
+      patientId: 1,
+      userId: 1,
+      systemStatus: true,
+    },
+    appointmentStore201: { message: "Consulta criada com sucesso" },
+    appointmentStore400: { message: "Paciente não encontrado" },
+    appointmentStore500: { message: "Assignment to constant variable." },
+    appointmentDestroy200: { message: "Consulta foi deletada com sucesso." },
+    appointmentDestroy400: { message: "Consulta não foi localizada." },
+    appointmentUpdateBody: {
+      appointmentReason: "Dor de cabeça",
+      appointmentDate: "2023-10-15",
+      appointmentTime: "10:00",
+      description: "Dor de cabeça",
+      prescriptionMedication: "Dipirona",
+      dosagePrecautions: "1 comprimido a cada 6 horas",
+      patientId: 1,
+      userId: 1
+    },
+    appointmentUpdate200: { message: "Consulta atualizada com sucesso" },
+    appointmentUpdate400: { message: "Consulta não encontrada" },
+    appointmentUpdate500: { message: "Assignment to constant variable." },
+    examIndex200: {
+      data: [
+        {
+          id: 1,
+          examType: "Sangue",
+          examDate: "2023-10-15",
+          examTime: "10:00",
+          laboratory: "Laboratório de Análises Clínicas",
+          documentURL: "https://www.google.com",
+          results: "Os resultados do exame são...",
+          patientId: 1,
+          userId: 1,
+          systemStatus: true,
+          createdAt: "2023-10-15T00:14:49.882Z",
+          updatedAt: "2023-10-15T00:14:49.882Z",
+        },
+      ],
+    },
+    examStoreBody: {
+      examType: "Sangue",
+      examDate: "2023-10-15",
+      examTime: "10:00",
+      laboratory: "Laboratório de Análises Clínicas",
+      documentURL: "https://www.google.com",
+      results: "Os resultados do exame são...",
+      patientId: 1,
+      userId: 1,
+      systemStatus: true,
+    },
+    examStore201: { message: "Exame criado com sucesso" },
+    examStore400: { message: "Paciente não encontrado" },
+    examStore409: { message: "E-mail already exists" },
+    examStore500: { message: "Assignment to constant variable." },
+    examUpdateBody: {
+      examType: "Sangue",
+      examDate: "2023-10-15",
+      examTime: "10:00",
+      laboratory: "Laboratório de Análises Clínicas",
+      documentURL: "https://www.google.com",
+      results: "Os resultados do exame são...",
+      patientId: 1,
+      userId: 1,
+      systemStatus: true
+    },
+    examUpdate200: { message: "Exame atualizado com sucesso" },
+    examUpdate400: { message: "Exame não encontrado" },
+    examUpdate500: { message: "Assignment to constant variable." },
+    examDestroy200: { message: "Exame foi deletado com sucesso." },
+    examDestroy400: { message: "Exame não foi localizado." },
+    medicineIndex200: {
+      data: [
+        {
+          id: 1,
+          name: "Dipirona",
+          date: "2023-10-15",
+          time: "10:00",
+          medicineType: "capsule",
+          amount: 0.5,
+          unit: "g",
+          comments: "Tomar com água",
+          systemStatus: true,
+          patientId: 1,
+          userId: 1
+        }
+      ]
+    },
+    medicineStoreBody: {
+      name: "Dipirona",
+      date: "2023-10-15",
+      time: "10:00",
+      medicineType: "capsule",
+      amount: 0.5,
+      unit: "g",
+      comments: "Tomar com água",
+      systemStatus: true,
+      patientId: 1,
+      userId: 1
+    },
+    medicineStore201: { message: "Medicamento criado com sucesso" },
+    medicineStore400: { message: "Paciente não encontrado" },
+    medicineStore500: { message: "Assignment to constant variable." },
+    medicineUpdateBody: {
+      name: "Dipirona",
+      date: "2023-10-15",
+      time: "10:00",
+      medicineType: "capsule",
+      amount: 0.5,
+      unit: "g",
+      comments: "Tomar com água",
+      systemStatus: true,
+      patientId: 1,
+      userId: 1
+    },
+    medicineUpdate200: { message: "Medicamento atualizado com sucesso" },
+    medicineUpdate400: { message: "Medicamento não encontrado" },
+    medicineUpdate500: { message: "Assignment to constant variable." },
+    medicineDestroy202: { message: "Medicamento foi deletado com sucesso." },
+    medicineDestroy400: { message: "Medicamento não foi localizado." },
+    dietIndex200: {
+      data: [
+        {
+          id: 1,
+          name: "Dieta Low Carb",
+          dietType: "lowcarb",
+          dietDate: "2023-10-15",
+          dietTime: "10:00",
+          description: "Dieta Low Carb...",
+          patientId: 1,
+          userId: 1,
+          systemStatus: true,
+          createdAt: "2023-10-15T00:14:49.882Z",
+          updatedAt: "2023-10-15T00:14:49.882Z",
+        },
+      ],
+    },
+    dietStoreBody: {
+      name: "Dieta Low Carb",
+      dietType: "lowcarb",
+      dietDate: "2023-10-15",
+      dietTime: "10:00",
+      description: "Dieta Low Carb...",
+      patientId: 1,
+      userId: 1,
+      systemStatus: true,
+    },
+    dietStore201: { message: "Dieta criada com sucesso" },
+    dietStore400: { message: "Paciente não encontrado" },
+    dietStore500: { message: "Assignment to constant variable." },
+    dietUpdateBody: {
+      name: "Dieta Low Carb",
+      dietType: "lowcarb",
+      dietDate: "2023-10-15",
+      dietTime: "10:00",
+      description: "Dieta Low Carb...",
+      patientId: 1,
+      userId: 1,
+      systemStatus: true
+    },
+    dietUpdate200: { message: "Dieta atualizada com sucesso" },
+    dietUpdate400: { message: "Dieta não encontrada" },
+    dietUpdate500: { message: "Assignment to constant variable." },
+    dietDestroy200: { message: "Dieta foi deletada com sucesso." },
+    dietDestroy400: { message: "Dieta não foi localizada." },
+    physicalExerciseIndex200: {
+      data: [
+        {
+          id: 1,
+          exerciseName: "Caminhada",
+          date: "2023-10-15",
+          time: "10:00",
+          exerciseType: "aerobic",
+          quantityPerWeek: 3,
+          description: "Caminhada de 30 minutos",
+          patientId: 1,
+          userId: 1,
+          systemStatus: true
+        }
+      ]
+    },
+    physicalExerciseStoreBody: {
+      exerciseName: "Caminhada",
+      date: "2023-10-15",
+      time: "10:00",
+      exerciseType: "aerobic",
+      quantityPerWeek: 3,
+      description: "Caminhada de 30 minutos",
+      patientId: 1,
+      userId: 1,
+      systemStatus: true
+    },
+    physicalExerciseStore201: { message: "Exercício físico criado com sucesso" },
+    physicalExerciseStore400: { message: "Paciente não encontrado" },
+    physicalExerciseStore500: { message: "Assignment to constant variable." },
+    physicalExerciseUpdateBody: {
+      exerciseName: "Caminhada",
+      date: "2023-10-15",
+      time: "10:00",
+      exerciseType: "aerobic",
+      quantityPerWeek: 3,
+      description: "Caminhada de 30 minutos",
+      patientId: 1,
+      userId: 1,
+      systemStatus: true
+    },
+    physicalExerciseUpdate200: {
+      message: "Exercício físico atualizado com sucesso"
+    },
+    physicalExerciseUpdate400: { message: "Exercício físico não encontrado" },
+    physicalExerciseUpdate500: { message: "Assignment to constant variable." },
+    physicalExerciseDestroy202: {
+      message: "Exercício físico foi deletado com sucesso."
+    },
+    physicalExerciseDestroy400: {
+      message: "Exercício físico não foi localizado."
+    },
+    medicalRecordIndex200: {
+      data: [
+        {
+          id: 1,
+          fullName: "Osvaldo Tiago Ferreira",
+          gender: "male",
+          birthday: "1984-03-13T00:00:00.000Z",
+          cpf: "135.735.415-00",
+          rg: "16.238.785-4",
+          civilStatus: "married",
+          phoneNumber: "79998355326",
+          email: "random@email.com",
+          nationality: "brasileiro",
+          emergencyContact: "7938460870",
+          listOfAllergies: "camarão, lagosta, lula",
+          specificCare: "",
+          healthInsurance: "",
+          insuranceNumber: "",
+          insuranceExpirationDate: "2023-1-1",
+          userId: 1,
+          addressId: 1,
+          systemStatus: true,
+          createdAt: "2023-10-15T00:14:49.882Z",
+          updatedAt: "2023-10-15T00:14:49.882Z",
+          appointments: [
+            {
+              id: 1,
+              appointmentReason: "Razão 1",
+              appointmentDate: "2023-11-30",
+              appointmentTime: "22:50:00",
+              description: "desc appointmnet 1",
+              prescriptionMedication: "med 1",
+              dosagePrecautions: "prec 1",
+              systemStatus: true,
+              patientId: 1,
+              userId: 2,
+              createdAt: "2023-11-05T16:12:03.567Z",
+              updatedAt: "2023-11-05T16:12:03.567Z"
+            }
+          ],
+          diets: [
+            {
+              id: 1,
+              name: "Diet 1",
+              date: "2023-11-30",
+              time: "22:50:00",
+              dietType: "low carb",
+              description: "desc diet 1",
+              systemStatus: true,
+              patientId: 1,
+              userId: 2,
+              createdAt: "2023-11-05T16:12:03.575Z",
+              updatedAt: "2023-11-05T16:12:03.575Z"
+            }
+          ],
+          exams: [
+            {
+              id: 1,
+              name: "Exam 1",
+              examDate: "2023-11-30",
+              examTime: "22:50:00",
+              examType: "Exam type 1",
+              laboratory: "Lab 1",
+              documentURL: "https://random.link.com",
+              results: "Results 1",
+              systemStatus: true,
+              patientId: 1,
+              userId: 2,
+              createdAt: "2023-11-05T16:12:03.583Z",
+              updatedAt: "2023-11-05T16:12:03.583Z"
+            }
+          ],
+          medicines: [
+            {
+              id: 1,
+              name: "Medicine 1",
+              date: "2023-11-30",
+              time: "22:50:00",
+              medicineType: "capsule",
+              amount: 0.55,
+              unit: "g",
+              comments: "comment  blah",
+              systemStatus: true,
+              patientId: 1,
+              userId: 2,
+              createdAt: "2023-11-05T16:12:03.591Z",
+              updatedAt: "2023-11-05T16:12:03.591Z"
+            }
+          ],
+          physicalExercises: [
+            {
+              id: 1,
+              exerciseName: "Exercise 1",
+              date: "2023-11-30",
+              time: "22:50:00",
+              exerciseType: "muscular endurance",
+              quantityPerWeek: "3",
+              description: "Exercise desc 1",
+              systemStatus: true,
+              patientId: 1,
+              userId: 2,
+              createdAt: "2023-11-05T16:12:03.599Z",
+              updatedAt: "2023-11-05T16:12:03.599Z"
+            }
+          ]
+        }
+      ]
+    },
+    medicalRecordIndex400: { message: "Id deve ser um INTEGER" },
+    medicalRecordIndex500: { message: "Assignment to constant variable." },
+    logIndex200: {
+      data: [
+        {
+          id: 4,
+          message: "administrador Admin User obteve os prontuários",
+          endpoint: "/api/prontuarios/",
+          httpVerb: "get",
+          createdAt: "2023-11-05T17:27:56.147Z",
+          updatedAt: "2023-11-05T17:27:56.147Z"
+        },
+        {
+          id: 3,
+          message: "administrador Admin User criou o usuário Teste usuário",
+          endpoint: "/api/usuarios/",
+          httpVerb: "post",
+          createdAt: "2023-11-05T16:31:53.129Z",
+          updatedAt: "2023-11-05T16:31:53.129Z"
+        },
+      ]
+    },
+    configThemeIndex200: {
+      data: [
+        {
+          id: 1,
+          primaryTextColor: "#000000",
+          secondaryTextColor: "#ffffff",
+          primaryColor: "#ffffff",
+          secondaryColor: "#000000",
+          companyName: "LABMedicine LTDA",
+          slogan: "Slogan da empresa",
+          logo: "Arquivo de imagem",
+          userId: 1,
+          systemStatus: true,
+          createdAt: "2023-10-15T00:14:49.882Z",
+          updatedAt: "2023-10-15T00:14:49.882Z",
+        }
+      ]
+    },
+    configThemeStoreBody: {
+      primaryTextColor: "#000000",
+      secondaryTextColor: "#ffffff",
+      primaryColor: "#ffffff",
+      secondaryColor: "#000000",
+      companyName: "LABMedicine LTDA",
+      slogan: "Slogan da empresa",
+      logo: "Arquivo de imagem",
+      userId: 1,
+      systemStatus: true
+    },
+    configThemeStore201: { message: "Tema criado com sucesso" },
+    configThemeStore400: { message: "Id do usuário não existe ou esta errado" },
+    configThemeStore500: { message: "Assignment to constant variable." },
+    configThemeUpdateBody: {
+      primaryTextColor: "#000000",
+      secondaryTextColor: "#ffffff",
+      primaryColor: "#ffffff",
+      secondaryColor: "#000000",
+      companyName: "LABMedicine LTDA",
+      slogan: "Slogan da empresa",
+      logo: "Arquivo de imagem",
+      userId: 1,
+    },
+    configThemeUpdate200: { message: "Tema atualizado com sucesso" },
+    configThemeUpdate400: { message: "Tema não encontrado" },
+    configThemeUpdate500: { message: "Assignment to constant variable." },
+    configThemeDestroy200: { message: "Tema foi deletado com sucesso." },
+    configThemeDestroy400: { message: "Tema não foi localizado." },
+    usersShow200: {
+      data: {
+        id: 1,
+        fullName: "John Doe",
+        gender: "male",
+        email: "john_doe@gmail.com",
+        cpf: "123.456.789-10",
+        phoneNumber: "(21) 9 8888 7777",
+        type: "medic",
+        systemStatus: true,
+        createdAt: "2023-10-15T00:14:49.882Z",
+        updatedAt: "2023-10-15T00:14:49.882Z",
+      }
+    },
+    usersShow400: { message: "Id deve ser um INTEGER" },
     userStoreBody: {
       fullName: "Osvaldo Tiago Ferreira",
       gender: "male",

@@ -88,7 +88,7 @@ class MedicineController {
             } */
     /* #swagger.responses[500] = {
               description: 'Caso de erro ao gerar a resposta.\nExemplo: Tentando atribuir um novo valor a uma constante.',
-              schema: { $ref: "#/definitions/medicineStore500" }
+              schema: { $ref: "#/definitions/medicineUpdate500" }
             } */
     await updateMedicine(req, res);
   }
