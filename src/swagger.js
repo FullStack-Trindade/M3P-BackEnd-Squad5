@@ -12,7 +12,7 @@ const doc = {
   swagger: "3.0",
   info: {
     version: "1.0.0",
-    title: "LABMedicine LTDA",
+    title: "LifeCare LTDA",
     description: "API de gestão clinica # SQUAD 05",
   },
   host: `localhost:${APP_PORT}`,
@@ -29,6 +29,12 @@ const doc = {
     { name: "Patients", description: "Requisições de pacientes" },
     { name: "Appointment", description: "Requisições de consultas" },
     { name: "Exams", description: "Requisições de exames" },
+    { name: "Medicine", description: "Requisições de medicamentos" },
+    { name: "Diet", description: "Requisições de dietas" },
+    {name: "PhysicalExercise", description: "Requisições de exercícios físicos"},
+    { name: "MedicalRecords", description: "Requisições de prontuários" },
+    { name: "Logs", description: "Requisições de logs" },
+    { name: "ConfigTheme", description: "Requisições de temas" },
   ],
 
   definitions: {
@@ -409,7 +415,7 @@ const doc = {
           secondaryTextColor: "#ffffff",
           primaryColor: "#ffffff",
           secondaryColor: "#000000",
-          companyName: "LABMedicine LTDA",
+          companyName: "LifeCare LTDA",
           slogan: "Slogan da empresa",
           logo: "Arquivo de imagem",
           userId: 1,
@@ -424,7 +430,7 @@ const doc = {
       secondaryTextColor: "#ffffff",
       primaryColor: "#ffffff",
       secondaryColor: "#000000",
-      companyName: "LABMedicine LTDA",
+      companyName: "LifeCare LTDA",
       slogan: "Slogan da empresa",
       logo: "Arquivo de imagem",
       userId: 1,
@@ -438,7 +444,7 @@ const doc = {
       secondaryTextColor: "#ffffff",
       primaryColor: "#ffffff",
       secondaryColor: "#000000",
-      companyName: "LABMedicine LTDA",
+      companyName: "LifeCare LTDA",
       slogan: "Slogan da empresa",
       logo: "Arquivo de imagem",
       userId: 1,
@@ -448,6 +454,15 @@ const doc = {
     configThemeUpdate500: { message: "Assignment to constant variable." },
     configThemeDestroy200: { message: "Tema foi deletado com sucesso." },
     configThemeDestroy400: { message: "Tema não foi localizado." },
+    userLoginBody: {
+      email: "email do usuário",
+      password: "123456",
+    },
+    userLogin200: {
+      message: "Usuário logado com sucesso",
+      accessToken: "token"
+    },
+    userLogin400: { message: "Usuário / Senha inválido(s)" },
     usersShow200: {
       data: {
         id: 1,

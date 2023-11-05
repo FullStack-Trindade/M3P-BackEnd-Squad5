@@ -33,7 +33,7 @@ async function newLog(message, endpoint, httpVerb) {
 
 /**
  * Log para objetos, caso paciente seja enviado, 
- * será adicionado o sufixo "do paciente ${nomo do paciente}""
+ * será adicionado o sufixo "do paciente ${nome do paciente}""
  * @param {User | Number} user usuário ou id do usuário que executou a ação
  * @param {String} object objeto que sofreu a ação (ex 'uma consulta', 'um medicamento')
  * @param req requisição
