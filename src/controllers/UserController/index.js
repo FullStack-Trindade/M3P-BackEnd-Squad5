@@ -121,6 +121,28 @@ class UsersController {
     await findOneUser(req, res);
   }
   async login(req, res) {
+    // #swagger.tags = ['Users']
+    // #swagger.summary = 'Loga um usuário'
+    // #swagger.description = 'Endpoint para logar um usuário no sistema'
+    /* #swagger.parameters["body"] = {
+        in: "body",
+        description:"
+        <u>
+          <li><b>email</b>: E-mail do usuário. <mark>Campo obrigatório</mark></span></li>
+          <li><b>password</b>: A senha deve conter no mínimo 6 caracteres. <mark>Campo obrigatório</mark></li>
+        </u>",
+        type: "object",
+        schema: { $ref: "#/definitions/userLoginBody" },
+        required: true} */
+    /* #swagger.responses[200] = {
+      description: 'Exemplo de resposta de sucesso',
+          schema: { $ref: "#/definitions/userLogin200" }
+        }*/
+    /* #swagger.responses[400] = {
+      description: 'Exemplo de resposta de quando não for localizado um usuário com o e-mail fornecido',
+          schema: { $ref: "#/definitions/userLogin400" }
+        }
+     */
     await userLogin(req, res);
   }
 
