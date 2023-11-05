@@ -40,10 +40,10 @@ module.exports = {
       phoneNumber: {
         allowNull: false,
         type: Sequelize.STRING,
-        validate: {
-          len: 12,
-          is: /^[0-9]*$/,
-        },
+        // validate: {
+        //   len: 12,
+        //   is: /^[0-9]*$/,
+        // },
       },
       type: {
         allowNull: false,
