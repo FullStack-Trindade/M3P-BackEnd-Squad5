@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
+    "start:gendoc": "node src/swagger.js",
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:seed": "npx sequelize-cli db:seed:all"
   },
@@ -33,6 +34,8 @@
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.33.0",
+    "swagger-autogen": "^2.23.6",
+    "swagger-ui-express": "^5.0.0",
     "yup": "^1.3.2"
   }
 }

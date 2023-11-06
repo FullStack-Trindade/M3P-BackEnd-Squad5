@@ -1,2 +1,9 @@
+# FOLDERS
 /node_modules
-/.env
+/.vscode
+/.idea
+
+# FILES
+.env
+swagger.json
+postgres.session.sql
