@@ -37,7 +37,7 @@ module.exports.userLogin = async (req, res) => {
     const access_token = jwt.sign(
       { name: user.email, role: user.type },
       JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "1d" }
     );
 
     return res.status(200).send({
